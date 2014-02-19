@@ -1,3 +1,22 @@
+Name: Nick Carey
+Course: Artificial Intelligence, EN. 600.335/435
+Assignment: "Homework 1: Search"
+
+Listing of Files:
+./src/edu/jhu/nick/cs335/hw1/PathSearch.java
+  - This is the main driver of the program. It parses cmd line arguments and 
+    selects the appropriate search algorithm to use. It runs the search and 
+    outputs program results
+
+How to Build and Run:
+  - To run:
+    - make ARGS="../data/map1.txt lolygag" run -C src
+
+
+Approximate Runtimes:
+
+
+
 *************************************l***************************************
 * Scaffolding for JHU Artificial Intelligence class, homework assignment 1. *
 *****************************************************************************

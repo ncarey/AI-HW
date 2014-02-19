@@ -18,7 +18,7 @@ SOURCES := $(call rwildcard,edu/jhu/,*.java)
 OBJECTS := $(patsubst %.java, $(BIN_DIR)/%.class, $(SOURCES))
 
 # Package that the driver class resides in
-PACKAGE = edu.jhu.ben.cs335.hw1
+PACKAGE = edu.jhu.nick.cs335.hw1
 
 #########
 # flags for tools
@@ -33,7 +33,7 @@ JAVA_FLAGS = -cp $(BIN_DIR)
 # targets and build rules
 ########
 
-MAIN_CLASS = HelloWorld
+MAIN_CLASS = PathSearch
 
 # by default (i.e. if no target is specified), 
 # use the "compile the source" target
@@ -41,23 +41,23 @@ default: $(MAIN_CLASS)
 
 # compile source code into binaries (.class files)
 $(MAIN_CLASS): $(SOURCES)
-	@echo Building $@...
-	@$(JAVAC) $(JAVAC_FLAGS) $^ 
+	echo Building $@...
+	$(JAVAC) $(JAVAC_FLAGS) $^ 
 # NOTE: a leading '@' prevents the line from being printed on STDOUT;
 #       if you want to see the commands being run, just delete the first
 #       character
 
 # compile javadocs
 docs: $(SOURCES)
-	@echo Building JavaDocs...
-	@$(JAVADOC) $(JAVADOC_FLAGS) $^
+	echo Building JavaDocs...
+	$(JAVADOC) $(JAVADOC_FLAGS) $^
 
 # pass driver class object to JRE
 run:
-	@$(JAVA) $(JAVA_FLAGS) $(PACKAGE).$(MAIN_CLASS)
+	$(JAVA) $(JAVA_FLAGS) $(PACKAGE).$(MAIN_CLASS) ${ARGS}
 
 # clean up object files
 clean:
-	@echo Deleting object files...
-	@rm -f $(OBJECTS) 
+	echo Deleting object files...
+	rm -f $(OBJECTS) 
 

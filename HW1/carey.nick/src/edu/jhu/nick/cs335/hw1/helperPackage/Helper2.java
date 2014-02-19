@@ -1,4 +1,4 @@
-package edu.jhu.ben.cs335.hw1.helperPackage;
+package edu.jhu.nick.cs335.hw1.helperPackage;
 
 public class Helper2
 {
