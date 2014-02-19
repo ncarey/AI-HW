@@ -1,0 +1,58 @@
+\ProvidesPackage{benstyle}
+
+\usepackage{url, hyperref, geometry, amsmath, amsfonts, amsthm, nicefrac}
+
+\geometry{paper=letterpaper, textheight=9.0in, textwidth=6.5in}
+
+\author{Ben Mitchell}
+
+\hypersetup{
+  colorlinks = true,
+  urlcolor = blue,
+  pdfauthor = {Ben Mitchell},
+  %pdfkeywords = {},
+  %pdftitle = {},
+  %pdfsubject = {},
+  pdfpagemode = UseNone
+}
+
+
+
+
+%\special{papersize=8.5in,11in}
+%\setlength{\paperheight}{11in}
+%\setlength{\paperwidth}{8.5in}
+%\setlength{\textwidth}{6.5in}
+%\setlength{\textheight}{9in}
+
+%\setlength{\hoffset}{.1in}
+%\setlength{\voffset}{-.5in}
+
+%\setlength{\oddsidemargin}{0in}
+%\setlength{\evensidemargin}{-.25in}
+%\setlength{\marginparwidth}{0in}
+%\setlength{\marginparpush}{0in}
+%\setlength{\marginparsep}{0in}
+
+%\setlength{\topmargin}{0in}        
+%\setlength{\headheight}{0in}
+%\setlength{\headsep}{0in}
+%\setlength{\headsep}{18pt}
+%\setlength{\footskip}{40pt}
+
+\newcommand{\pr}[1]{\n{\noindent\large\textbf{#1.}}}
+\newcommand{\spr}[1]{\hspace{0.0in}\\ \textbf{#1)}}
+\newcommand{\mb}[1]{\mbox{\boldmath$#1$}}
+\newcommand{\vb}[1]{\vec{\mb{#1}}}
+\newcommand{\ttt}[1]{\texttt{#1}}
+
+\newcommand{\tab}{\hspace{0.5in}}
+\newcommand{\n}{\vspace{5mm}}
+\newcommand{\br}{\vspace{5mm}}
+\newcommand{\head}[3]{
+  \begin{flushright}
+  #1 \\
+  #2 \\
+  #3
+  \end{flushright}
+}
