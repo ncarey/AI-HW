@@ -1,3 +1,3 @@
 #!/bin/bash
 
-make ARGS="asdf1 asdf2 asdf3" run -C src
+make ARGS="../data/map1.txt BFS" run -C src

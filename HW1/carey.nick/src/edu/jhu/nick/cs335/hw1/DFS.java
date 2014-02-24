@@ -3,12 +3,12 @@ import java.util.ArrayList;
 import edu.jhu.nick.cs335.hw1.SearchAlgorithm;
 import edu.jhu.nick.cs335.hw1.GridSpaceObject;
 
-public class BFS extends SearchAlgorithm
+public class DFS extends SearchAlgorithm
 {
   
   private ArrayList<GridSpaceObject> mqueue;
  
-  public BFS(char[][] map_in, int start_r, int start_c)
+  public DFS(char[][] map_in, int start_r, int start_c)
   {
     super(map_in, start_r, start_c);
     mqueue = new ArrayList<GridSpaceObject>();
@@ -100,7 +100,7 @@ public class BFS extends SearchAlgorithm
         }
         else if(neighbors[i].getChar() == ',' || neighbors[i].getChar() == '.' || neighbors[i].getChar() == 'g')
         {
-          mqueue.add(neighbors[i]);
+          mqueue.add(0, neighbors[i]);
         }
         else
         {

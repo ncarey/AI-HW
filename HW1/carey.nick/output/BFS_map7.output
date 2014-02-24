@@ -1,0 +1,8 @@
+make: Entering directory `/home/ncarey/gitrepos/AI-HW/HW1/carey.nick/src'
+java -cp ../bin edu.jhu.nick.cs335.hw1.PathSearch ../data/map7.txt BFS
+Selected Map: ../data/map7.txt
+Selected Algorithm: BFS
+There exists no path to the goal
+Cost: Infinity
+Nodes Expanded: 45
+make: Leaving directory `/home/ncarey/gitrepos/AI-HW/HW1/carey.nick/src'

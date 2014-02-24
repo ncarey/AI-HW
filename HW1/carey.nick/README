@@ -8,71 +8,40 @@ Listing of Files:
     selects the appropriate search algorithm to use. It runs the search and 
     outputs program results
 
+./src/edu/jhu/nick/cs335/hw1/SearchAlgorithm.java
+  - This is an abstract class that each of DFS.java, BFS.java, and AStar.java implement
+
+./src/edu/jhu/nick/cs335/hw1/GridSpaceObject.java
+  - This is an object used to represent a tile in the map
+
+./src/edu/jhu/nick/cs335/hw1/BFS.java
+  - Breadth First Search algorithm implementation
+
+./src/edu/jhu/nick/cs335/hw1/DFS.java
+  - Depth First Search algorithm implementation
+
+./src/edu/jhu/nick/cs335/hw1/AStar.java
+  - A* algorithm implementation
+
+
 How to Build and Run:
+  - To build:
+    - type 'make' in the ./src directory
   - To run:
-    - make ARGS="../data/map1.txt lolygag" run -C src
+    - type 'make ARGS="../data/mapX.txt [algorithm]" run -C src' in the ./ directory
+      where X is 1,2,3,4,5,6,7,or 8 and [algorithm] is BFS, DFS, or A*
+    - OR, edit the run.sh file as mentioned above, and execute
 
+Approximate Runtimes are listed in the table included in the ./doc/Written.pdf
 
-Approximate Runtimes:
+Reflections:
 
-
-
-*************************************l***************************************
-* Scaffolding for JHU Artificial Intelligence class, homework assignment 1. *
-*****************************************************************************
-Copyright 2014, Ben Mitchell
-All rights reserved
-
-
---------------------------------------------------------------------------------
-1. Introduction
---------------------------------------------------------------------------------
-
-This README is part of a scaffold provided for students taking JHU's Artificial
-Intelligence class.  It is intended to give students an idea of the directory
-structure they are expected to use when submitting assignments for this class.
-
-
---------------------------------------------------------------------------------
-2. Usage
---------------------------------------------------------------------------------
-
-All code resides in the src/ subdirectory, which also contains a Makefile that
-can build and run the code.  As a convenience, the top level directory also
-contains shellscripts which call `make`.
-
-You are not required to use Make; so long as your shell scripts do what they're
-supposed to, you can write them any way you like.
-
-
-The program here is a simple HelloWorld prorgam, intended primarily to
-demonstrate proper use of packages and directories.  The Makefile is fairly
-flexible (though intentionally on the simple side), and is intended to be an
-example of one way to manage a Java codebase without using an IDE for those who
-prefer to use command-line tools.
-
-To build the program, cd to the src/ subdirectory, and do `make`; to run the
-program, do `make run`; and to build the JavaDocs, do `make docs`.  The binary
-class files will be put in the bin/ subdirectory, and the html document files
-will be put in the doc/ subdirectory.
-
-See the assignment PDF for details about what you are expected to submit.
-
-
---------------------------------------------------------------------------------
-3. Disclaimer
---------------------------------------------------------------------------------
-
-This software was originally written only for the purpose of providing
-scaffolding for student projects.  It is not guaranteed in any sense to be
-suitable for any purpose and no warranty, express or implied, is provided.
-
---------------------------------------------------------------------------------
-4. Terms of Use
---------------------------------------------------------------------------------
-
-This software is only intended to be used by the members of the JHU Artificial
-Intelligence class taught by Ben Mitchell in the Spring of 2014.  Individuals
-to whom this software is distributed are permitted to use it only for the
-purpose of completing homework assignments provided in this class.  Any other
-use is expressly prohibited without written consent of the author.
+I am a second year masters student and I spend ~18 hours on this assignment and I did not nearly
+complete everything required of me. I think it is useful
+to implement DFS, BFS, A*, and other search algorithms, but I believe the amount of busywork 
+present in this assignment is far too much.  The majority of the time I spent on this assignment was
+setup, Object Oriented Design, polish, and other non-AI related tasks.  I would like to learn and practice
+AI, and I would like the homework to help me learn AI-related subjects. I think my grade is now 
+going to suffer because I spent too much time on non-AI setup tasks,
+which did not allow me to get to the implementation of the AI-search algorithms.
+In the future I would suggest a much more complete code scaffold to be provided.

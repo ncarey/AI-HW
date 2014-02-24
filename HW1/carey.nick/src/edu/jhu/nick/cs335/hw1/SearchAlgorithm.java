@@ -31,7 +31,7 @@ public abstract class SearchAlgorithm
   
   int getCost(int row, int col)
   {
-    if(map[row][col] == '.')
+    if(map[row][col] == '.' || map[row][col] == 's' || map[row][col] == 'g')
     {
       return 1;
     }
@@ -57,8 +57,4 @@ public abstract class SearchAlgorithm
     System.out.println("Cost: Infinity");
     System.out.println("Nodes Expanded: " + cur_nodes);
   } 
-  void printStatus()
-  {
-    System.out.println("(" + prev_row + "," + prev_col + ") -> (" + cur_row + "," + cur_col + ")\tCost: " + cur_cost + "\tNodes: " + cur_nodes);
-  }
 }

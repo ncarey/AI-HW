@@ -1,0 +1,8 @@
+make: Entering directory `/home/ncarey/gitrepos/AI-HW/HW1/carey.nick/src'
+java -cp ../bin edu.jhu.nick.cs335.hw1.PathSearch ../data/map8.txt DFS
+Selected Map: ../data/map8.txt
+Selected Algorithm: DFS
+Path Taken: (2,1) -> (2,2) -> (2,3) -> (2,4) -> (2,5) -> (1,5) -> (1,6) -> (1,7) -> (1,8) -> (2,8) -> (3,8) -> (4,8) -> (5,8) -> (6,8) -> (7,8) -> (8,8)
+Cost: 15
+Nodes Expanded: 16
+make: Leaving directory `/home/ncarey/gitrepos/AI-HW/HW1/carey.nick/src'

@@ -2,9 +2,7 @@ package edu.jhu.nick.cs335.hw1;
 import java.util.ArrayList;
 
 import java.io.*;
-import edu.jhu.nick.cs335.hw1.Helper;
 import edu.jhu.nick.cs335.hw1.SearchAlgorithm;
-import edu.jhu.nick.cs335.hw1.helperPackage.Helper2;
 
 public class PathSearch
 {
@@ -21,13 +19,8 @@ public class PathSearch
   public static void main(String[] args) throws Exception, IOException, FileNotFoundException
   {
 
-    Helper f = new Helper();
-    f.setFoo(3);
-    Helper2 b = new Helper2();
-    b.setBar(5);
-    
     String map_fn = args[0];
-    String alg = args[1];
+    String alg = args[1].trim();
     System.out.println("Selected Map: " + map_fn); 
     System.out.println("Selected Algorithm: " + alg);
 
@@ -48,11 +41,15 @@ public class PathSearch
       char[][] map = new char[x][y];
       int start_row = 0;
       int start_col = 0;
+      int goal_row = 0;
+      int goal_col = 0;
       boolean foundStart = false;
+      boolean foundGoal = false;
+
       for(int i = 0; i < lines.size(); i++)
       {
         map[i] = lines.get(i).toCharArray();
-        if(foundStart == false)
+        if(foundStart == false || foundGoal == false)
         {
           for(int k = 0; k < map[i].length; k++)
           {
@@ -61,18 +58,38 @@ public class PathSearch
               start_row = i;
               start_col = k;
               foundStart = true;
-              break;
+            }
+            if(map[i][k] == 'g')
+            {
+              goal_row = i;
+              goal_col = k;
+              foundGoal = true;
             }
           }
         }
         //System.out.println(i + " " + new String(map[i]));
       }
-      //System.out.println("Start: " + start_row + " " + start_col);
       //Start search now
-      SearchAlgorithm bfs = new BFS(map, start_row, start_col);
-      while(bfs.isFinished() == false)
+      SearchAlgorithm search;
+      if(alg.equals("BFS"))
       {
-        bfs.nextStep();
+        search = new BFS(map, start_row, start_col);
+      }
+      else if(alg.equals("DFS"))
+      {
+        search = new DFS(map, start_row, start_col);
+      }
+      else if(alg.equals("A*"))
+      {
+        search = new AStar(map, start_row, start_col, goal_row, goal_col);
+      }else{
+        //default to BFS
+        search = new BFS(map, start_row, start_col);
+      }
+
+      while(search.isFinished() == false)
+      {
+        search.nextStep();
       }
 
     }

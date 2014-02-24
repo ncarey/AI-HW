@@ -1,0 +1,4 @@
+make: Entering directory `/home/ncarey/gitrepos/AI-HW/HW1/carey.nick/src'
+java -cp ../bin edu.jhu.nick.cs335.hw1.PathSearch ../data/map6.txt BFS
+Selected Map: ../data/map6.txt
+Selected Algorithm: BFS

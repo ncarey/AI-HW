@@ -37,5 +37,21 @@ public class GridSpaceObject
   {
     return mchar;
   }
-
+  @Override
+  public boolean equals(Object obj)
+  {
+    if(obj == null)
+    {
+      return false;
+    } 
+    GridSpaceObject other = (GridSpaceObject)obj;
+    if(this.row == other.getRow() && this.col == other.getCol())
+    {
+      return true;
+    }
+    else
+    {
+      return false;
+    }
+  }
 }

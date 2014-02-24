@@ -1,0 +1,8 @@
+make: Entering directory `/home/ncarey/gitrepos/AI-HW/HW1/carey.nick/src'
+java -cp ../bin edu.jhu.nick.cs335.hw1.PathSearch ../data/map8.txt A*
+Selected Map: ../data/map8.txt
+Selected Algorithm: A*
+Path Taken: (2,1) -> (2,2) -> (2,3) -> (2,4) -> (2,5) -> (2,6) -> (3,6) -> (4,6) -> (5,6) -> (6,6) -> (7,6) -> (8,6) -> (8,7) -> (8,8)
+Cost: 0
+Nodes Expanded: 13
+make: Leaving directory `/home/ncarey/gitrepos/AI-HW/HW1/carey.nick/src'
