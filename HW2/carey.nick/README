@@ -1,0 +1,78 @@
+*************************************l***************************************
+* Scaffolding for JHU Artificial Intelligence class, homework assignment 2. *
+*****************************************************************************
+Copyright 2014, Ben Mitchell
+All rights reserved
+
+
+--------------------------------------------------------------------------------
+1. Introduction
+--------------------------------------------------------------------------------
+
+This README is part of a scaffold provided for students taking JHU's Artificial
+Intelligence class.  It is intended to give students an idea of the directory
+structure they are expected to use when submitting assignments for this class.
+
+
+--------------------------------------------------------------------------------
+2. Usage
+--------------------------------------------------------------------------------
+
+All code resides in the src/ subdirectory, which also contains a Makefile that
+can build and run the code.  As a convenience, the top level directory also
+contains shellscripts which call `make`.  The run.sh script also passes any
+command line arguments given to it along to the Java program, in case you want
+your Java program to make use of command line arguments.
+
+You are not required to use Make for your homework; so long as your shell
+scripts do what they're supposed to, you can write them any way you like (see
+assignment PDF for details).
+
+
+The program code included here implements all of the game logic for Konane, so
+that students can concentrate on their game-playing agents, rather than trying
+to get the rules of the game right.  You are free to make whatever use of this
+code you like in doing your assignment (including none), but the intent is that
+the code in the board/ subdirectory should not require modification.  The
+main() function in Konane.java is pretty basic, so you may want to improve or
+re-write it; as always, the interface design is up to you.
+
+The code in the players/ subdirectory is the code which you are expected to
+modify.  Currently, the only Player type that does anything is HumanPlayer,
+which is a simple example of how you can have a human play the game (feel free
+to modify or re-write this class if you wish, but it may already be sufficient
+for your needs).  The other classes, MinimaxPlayer and AlphaBetaPlayer, are
+effectively empty, and you will need to fill them in correctly.  This is the
+heart of the assignment, and can be done however you want.  You may also want
+to create some additional classes (particularly if you are in the 400 level),
+which is fine; again, you can do whatever you want with the scaffolding so long
+as the program you turn in works correctly.
+
+
+To build the program, cd to the src/ subdirectory, and do `make`; to run the
+program, do `make run`; and to build the JavaDocs, do `make docs`.  The binary
+class files will be put in the bin/ subdirectory, and the html document files
+will be put in the doc/ subdirectory.
+
+See the assignment PDF for details about what you are expected to submit.
+
+
+--------------------------------------------------------------------------------
+3. Disclaimer
+--------------------------------------------------------------------------------
+
+This software was originally written only for the purpose of providing
+scaffolding for student projects.  It is not guaranteed in any sense to be
+suitable for any purpose and no warranty, express or implied, is provided.
+
+--------------------------------------------------------------------------------
+4. Terms of Use
+--------------------------------------------------------------------------------
+
+This software is only intended to be used by the members of the JHU Artificial
+Intelligence class taught by Ben Mitchell in the Spring of 2014.  Individuals
+to whom this software is distributed are permitted to use it only for the
+purpose of completing homework assignments provided in this class.  Any other
+use is expressly prohibited without express written consent of the author.  It
+may not be posted, shared, or otherwise redistributed without express consent
+of the author.
