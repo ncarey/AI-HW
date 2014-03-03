@@ -78,6 +78,33 @@ public class Board {
     }
   }
 
+  /**
+   * Deep-copy constructor
+   *
+   * @param other the valid board that will be copied by this board
+   */
+  public Board (Board other) {
+
+    //shallow copy primitive fields
+    this.blackToPlay = other.blackToPlay;
+    this.turn = other.turn;
+    this.moveListStale = other.moveListStale;
+    this.width = other.width;
+  
+    //make deep copy of arrays
+    data = new Tile[width*width];
+    for(int i = 0; i < data.length; i++) {
+      this.data[i] = new Tile(other.data[i].getChip());
+    }
+ 
+    moveList = new ArrayList<Move>();
+    for(int i = 0; i < other.moveList.size(); i++) {
+      //Move object immutable, no need to construct new Move objects
+      this.moveList.set(i, other.moveList.get(i));
+    }
+
+  }
+
   /** 
    * getter method for the board size
    */

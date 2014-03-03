@@ -10,6 +10,16 @@ import edu.jhu.ben.cs335.hw2.board.Move;
  */
 public class AlphaBetaPlayer extends Player {
 
+  private int maxDepth;
+
+  public AlphaBetaPlayer(int maxSearchDepth) {
+  
+    super();
+    maxDepth = maxSearchDepth;
+
+  }
+
+
   public Move getMove(Board game) {
     Move ret = new Move(-1, -1, -1, -1);
 

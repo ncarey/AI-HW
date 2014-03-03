@@ -41,15 +41,20 @@ public class Konane {
 
         System.out.print(" (1=human, 2=minmax, 3=alphabeta): ");
         int choice = stdin.nextInt();
+        int maxSearchDepth = 1;
         switch (choice) {
           case 1:
             players[i] = new HumanPlayer();
             break;
           case 2:
-            players[i] = new MinimaxPlayer();
+            System.out.print(" Specify Maximum Search Depth: ");
+            maxSearchDepth = stdin.nextInt();
+            players[i] = new MinimaxPlayer(maxSearchDepth);
             break;
           case 3:
-            players[i] = new AlphaBetaPlayer();
+            System.out.print(" Specify Maximum Search Depth: ");
+            maxSearchDepth = stdin.nextInt();
+            players[i] = new AlphaBetaPlayer(maxSearchDepth);
             break;
           default:
             System.out.println("bad agent type given, please try again...");
