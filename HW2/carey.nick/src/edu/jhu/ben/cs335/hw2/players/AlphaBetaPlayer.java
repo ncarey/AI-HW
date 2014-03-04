@@ -11,8 +11,8 @@ import edu.jhu.ben.cs335.hw2.board.Move;
 public class AlphaBetaPlayer extends Player {
 
   private int maxDepth;
-
-  public AlphaBetaPlayer(int maxSearchDepth) {
+ 
+  public AlphaBetaPlayer(int maxSearchDepth, int playerColor) {
   
     super();
     maxDepth = maxSearchDepth;

@@ -6,6 +6,7 @@ import edu.jhu.ben.cs335.hw2.board.Move;
 import edu.jhu.ben.cs335.hw2.board.Chip;
 import edu.jhu.ben.cs335.hw2.board.InvalidMoveException;
 import java.lang.Integer;
+import java.lang.Math;
 import java.util.ArrayList;
 
 /** minimax Player class for Konane game
@@ -65,17 +66,29 @@ public class MinimaxPlayer extends Player {
   private int maxDepth;
 
   /**
+   * Chip color representing player 
+   * used for boardUtilityEvaluation function.
+   */
+  private Chip player;
+
+  /**
    * Construct a MinimaxPlayer object by specifiying the maximum search depth
    * The minimax algorithm will look maxDepth moves ahead when determining the 
    * optimal move to make
    *
-   * @param maxSearchDepth the maximum search depth for the minimax search tree. 
+   * @param maxSearchDepth the maximum search depth for the minimax search tree
+   * @param playerColor integer representing player - 0 is black, anything else is white
    */
-  public MinimaxPlayer(int maxSearchDepth) {
+  public MinimaxPlayer(int maxSearchDepth, int playerColor) {
   
     super();
     maxDepth = maxSearchDepth;
-  
+    
+    if(playerColor == 0) {
+      player = Chip.BLACK;
+    }else{
+      player = Chip.WHITE;
+    }
   }
 
   /**
@@ -107,7 +120,7 @@ public class MinimaxPlayer extends Player {
       try {
         copy.executeMove(legalMoves.get(i));
       } catch(InvalidMoveException e) {
-        System.out.println("Error: Minimax examined an invalid move. Something is seriously wrong. Continuing");
+        System.out.println("ERROR: Minimax examined an invalid move. Something is seriously wrong. Continuing");
         continue;
       }
       //Examine what optimal opponent will do. 
@@ -117,20 +130,149 @@ public class MinimaxPlayer extends Player {
         ret = legalMoves.get(i);
         maxUtil = curUtil;
       }
-    }    
+    } 
+    System.out.println("Executing move " + ret.toString());   
     return ret;
 
   }
 
+  /**
+   * function Min-Value(Board, cur_depth) returns a utility value
+   *   if curoffTest(Board, cur_depth)
+   *     return boardUtilityEvaluation(Board)
+   *   ret = infinity
+   *   for each possible action:
+   *     ret = min(ret, Max-Value(action applied to Board, cur_depth+1)
+   *   return ret
+   *
+   * @param game game state of current node in search tree
+   * @param depth current depth of search
+   */
   private int minValue(Board game, int depth) {
+
+    if(searchCutOffTest(game, depth)) {
+      return boardUtilityEvaluation(game);
+    }
+
+    int minUtil = Integer.MAX_VALUE;
+    ArrayList<Move> legalMoves = game.getLegalMoves();
+    for(int i = 0; i < legalMoves.size(); i++) {
+      Board copy = new Board(game);
+      try {
+        copy.executeMove(legalMoves.get(i));
+      } catch(InvalidMoveException e) {
+        System.out.println("ERROR: Minimax examined an invalid move. Something is seriously wrong. Continuing");
+        continue;
+      }
+      minUtil = Math.min(minUtil, maxValue(copy, depth+1));
+    }    
   
-    return 1;
+    return minUtil;
+
   }
 
+  /**
+   * function Max-Value(Board, cur_depth) returns a utility value
+   *   if cutoffTest(Board, cur_depth)
+   *     return boardUtilityEvaluation(Board)
+   *   ret = -infinity
+   *   for each possible action:
+   *     ret = max(ret, Min-Value(action applied to Board, cur_depth+1)
+   *   return ret
+   *
+   * @param game game state of current node in search tree
+   * @param depth current depth of search\
+   */
   private int maxValue(Board game, int depth) {
 
-    return 1;
+    if(searchCutOffTest(game, depth)) {
+      return boardUtilityEvaluation(game);
+    }
+
+    int maxUtil = Integer.MIN_VALUE;
+    ArrayList<Move> legalMoves = game.getLegalMoves();
+    for(int i = 0; i < legalMoves.size(); i++) {
+      Board copy = new Board(game);
+      try {
+        copy.executeMove(legalMoves.get(i));
+      } catch(InvalidMoveException e) {
+        System.out.println("ERROR: Minimax examined an invalid move. Something is seriously wrong. Continuing");
+        continue;
+      }
+      maxUtil = Math.max(maxUtil, minValue(copy, depth+1));
+    }    
+  
+    return maxUtil;
+
   }
+
+  private int boardUtilityEvaluation(Board game) {
+  
+    int maxUtilValue = game.getSize() * game.getSize();
+    int minUtilValue = -1 * maxUtilValue;
+    // Check game-over conditions 
+    if(game.gameWon() != Chip.NONE) {
+      if(game.gameWon() == this.player) {
+        return maxUtilValue;
+      }else{
+        return minUtilValue;
+      }
+    }else{
+      ArrayList<Move> legalMoves = game.getLegalMoves();
+      int score = legalMoves.size();
+      if(game.getTile(legalMoves.get(0).pointFrom()).getChip() != this.player){
+        score = score * -1;
+      }
+      return score;
+
+    }
+  }
+
+/* Utility function based on number of remaining chips. Turned out not so great...
+  private int boardUtilityEvaluation(Board game) {
+
+    int maxUtilValue = game.getSize() * game.getSize();
+    int minUtilValue = 0;
+    // Check game-over conditions 
+    if(game.gameWon() != Chip.NONE) {
+      if(game.gameWon() == this.player) {
+        return maxUtilValue;
+      }else{
+        return minUtilValue;
+      }
+    }else{
+    // Utility will be: number of own chips + number of chips opponent has lost           
+      int maxChips = maxUtilValue / 2;
+      int myChips = 0;
+      int hisChips = 0;
+      
+      Chip curChip;
+      for(int row = 0; row < game.getSize(); row++) {
+        for(int col = 0; col < game.getSize(); col++) {
+
+          try {
+            curChip = game.getTile(row, col).getChip();
+            if(curChip == this.player) {
+              myChips++;
+            }else if(curChip == Chip.NONE) {
+              //nothing
+            }else{
+              hisChips++;
+            }            
+          } catch(IndexOutOfBoundsException e) {
+            System.out.println("This should never have happened... Index out of bounds. Continuing");
+            continue;
+          }
+
+        }
+      }
+
+      return myChips + (maxChips - hisChips);
+
+    }
+  }
+*/
+
 
   /**
    * Private helper method for determining whether the minimax search tree should

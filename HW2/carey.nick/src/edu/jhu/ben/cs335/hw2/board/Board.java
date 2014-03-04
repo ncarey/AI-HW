@@ -100,7 +100,7 @@ public class Board {
     moveList = new ArrayList<Move>();
     for(int i = 0; i < other.moveList.size(); i++) {
       //Move object immutable, no need to construct new Move objects
-      this.moveList.set(i, other.moveList.get(i));
+      this.moveList.add(other.moveList.get(i));
     }
 
   }
