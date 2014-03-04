@@ -14,6 +14,10 @@ import edu.jhu.ben.cs335.hw2.board.InvalidMoveException;
  */
 public class HumanPlayer extends Player {
 
+  public int getTotalNodesExplored() {
+    return 0;
+  }
+
   /** 
    * prompts a human player to enter a valid move; doesn't return
    * until it's got one thats legal.

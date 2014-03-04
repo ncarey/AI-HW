@@ -86,7 +86,9 @@ public class Konane {
       } else {
         System.out.println("Game won by White after " + game.getTurn() + " turns");
       }
-
+      
+      System.out.println("Black Player explored a total of " + players[0].getTotalNodesExplored() + " nodes");
+      System.out.println("White Player explored a total of " + players[1].getTotalNodesExplored() + " nodes");
 
     } catch (Exception e) {
       System.err.println("Caught an exception: \n\t" + e.toString());

@@ -16,4 +16,10 @@ public abstract class Player {
    */
   public abstract Move getMove(Board game);
 
+  /**
+   * Function to return the current total amount of game-state nodes examined by player
+   */
+  public abstract int getTotalNodesExplored();
+
+
 }

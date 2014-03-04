@@ -60,6 +60,11 @@ import java.util.ArrayList;
 
 public class MinimaxPlayer extends Player {
 
+  /**
+   * Variable used for controlling debugging statements - 1 on, 0 off
+   */ 
+  private static final int DEBUG = 1;
+
   /** 
    * maximum minimax search tree depth specified at runtime
    */
@@ -72,6 +77,16 @@ public class MinimaxPlayer extends Player {
   private Chip player;
 
   /**
+   * counter variable to keep track of expanded game state nodes
+   */
+  private int totalNodesExplored;
+
+  /**
+   * counter variable to keep track of expanded game state nodes per turn
+   * this variable is reset at each call to getMove()
+   */
+  private int currentNodesExplored;
+  /**
    * Construct a MinimaxPlayer object by specifiying the maximum search depth
    * The minimax algorithm will look maxDepth moves ahead when determining the 
    * optimal move to make
@@ -83,12 +98,20 @@ public class MinimaxPlayer extends Player {
   
     super();
     maxDepth = maxSearchDepth;
-    
+    totalNodesExplored = 0;
+
     if(playerColor == 0) {
       player = Chip.BLACK;
     }else{
       player = Chip.WHITE;
     }
+  }
+
+  /**
+   * Getter function for total nodes explored by player 
+   */
+  public int getTotalNodesExplored() {
+    return totalNodesExplored;
   }
 
   /**
@@ -107,12 +130,23 @@ public class MinimaxPlayer extends Player {
    * @param game the current game state; state is gaurenteed by the driver to not be an end-game state
    */
   public Move getMove(Board game){
+    
+    currentNodesExplored = 0;
     Move ret = null;
     int maxUtil = Integer.MIN_VALUE;
+    long startTime = System.nanoTime();
+
     
     int curUtil;    
     ArrayList<Move> legalMoves = game.getLegalMoves();
+    
+    if(DEBUG == 1) {
+      System.out.println("  Current player has " + legalMoves.size() + " moves to examine");
+    }
+
+    //TODO consider parallelizing this loop...
     for(int i = 0; i < legalMoves.size(); i++) {
+
       //get copy of game board
       Board copy = new Board(game);
 
@@ -126,11 +160,25 @@ public class MinimaxPlayer extends Player {
       //Examine what optimal opponent will do. 
       //Choose move that results in best case for self given optimal opponent's decision
       curUtil = minValue(copy, 1);
+
+      if(DEBUG == 1) {
+        System.out.println("  Move: " + legalMoves.get(i).toString() + " has a util value of " + curUtil);
+      }
+
       if(curUtil > maxUtil) {
         ret = legalMoves.get(i);
         maxUtil = curUtil;
       }
     } 
+
+    long endTime = System.nanoTime();
+    double duration = ((double)(endTime - startTime)) / 1000000000.0;
+
+    if(DEBUG == 1) {
+      System.out.println("  Current move decision has explored " + currentNodesExplored + " nodes.");
+      System.out.println("  Current move decision has taken " + duration + " seconds.");
+    }
+
     System.out.println("Executing move " + ret.toString());   
     return ret;
 
@@ -149,6 +197,9 @@ public class MinimaxPlayer extends Player {
    * @param depth current depth of search
    */
   private int minValue(Board game, int depth) {
+
+    totalNodesExplored++;
+    currentNodesExplored++;
 
     if(searchCutOffTest(game, depth)) {
       return boardUtilityEvaluation(game);
@@ -181,11 +232,14 @@ public class MinimaxPlayer extends Player {
    *   return ret
    *
    * @param game game state of current node in search tree
-   * @param depth current depth of search\
+   * @param depth current depth of search
    */
   private int maxValue(Board game, int depth) {
 
-    if(searchCutOffTest(game, depth)) {
+    totalNodesExplored++;
+    currentNodesExplored++;
+   
+   if(searchCutOffTest(game, depth)) {
       return boardUtilityEvaluation(game);
     }
 
@@ -205,7 +259,13 @@ public class MinimaxPlayer extends Player {
     return maxUtil;
 
   }
-
+  /**
+   * Board Utility Evaluation function based on number of moves available
+   * Since the game is all about being able to make a move, this function
+   * evaluated board utility based on how many moves available to you and your opponent
+   * 
+   * @param game game state whose utility is to be examined
+   */
   private int boardUtilityEvaluation(Board game) {
   
     int maxUtilValue = game.getSize() * game.getSize();
