@@ -47,7 +47,7 @@ import java.lang.Integer;
  *
  * @author Nick Carey
  */
-public class AlphaBetaPlayer extends Player {
+public class TimeBoundIterativeDeepeningAlphaBetaPlayer extends Player {
 
   /**
    * Variable used for controlling debugging statements - 1 on, 0 off
@@ -55,9 +55,13 @@ public class AlphaBetaPlayer extends Player {
   private static final int DEBUG = 1;
 
   /** 
-   * maximum minimax search tree depth specified at runtime
+   * the current max depth - increases each iteration 
    */
   private int maxDepth;
+  /** 
+   * maximum time allowed by user per turn
+   */
+  private double maxTime;
 
   /**
    * Chip color representing player 
@@ -89,10 +93,10 @@ public class AlphaBetaPlayer extends Player {
    * @param maxSearchDepth the maximum search depth for the search tree
    * @param playerColor integer representing player - 0 is black, anything else is white
    */
-  public AlphaBetaPlayer(int maxSearchDepth, int playerColor, boolean toOrderMoves) {
+  public TimeBoundIterativeDeepeningAlphaBetaPlayer(double timeBound, int playerColor, boolean toOrderMoves) {
 
     super();
-    maxDepth = maxSearchDepth;
+    maxTime = timeBound;
     totalNodesExplored = 0;
     this.orderMoves = toOrderMoves;
 
@@ -111,17 +115,49 @@ public class AlphaBetaPlayer extends Player {
   }
 
   /**
+   * Method that returns the player's next move according to the time bound AlphaBeta Search Algorithm 
+   * This method is really just a driver for the original getMove method
+   * It calls the original getMove over and over with increasing depth limits until time runs out
+   *
+   * @param game the current game state; state is gaurenteed by the driver to not be an end-game state
+   */
+  public Move getMove(Board game) {
+    long startTime = System.nanoTime();
+    currentNodesExplored = 0;
+    Move ret = null;
+    maxDepth = 0;
+    long endTime = System.nanoTime();
+    double duration = ((double)(endTime - startTime)) / 1000000000.0;
+
+    /* rationale here is that the next depth level search will probably take 
+     * current execution duration time quadrupled, due to the search tree leaf nodes
+     * expanding exponentially by a power of about 4 as depth increases
+     */
+    while(duration*4 < maxTime) {
+      maxDepth++;
+      ret = getMoveHelper(game);
+      endTime = System.nanoTime();
+      duration = ((double)(endTime - startTime)) / 1000000000.0;
+    }
+
+    if(DEBUG == 1) {
+      System.out.println("  Current move decision has explored " + currentNodesExplored + " nodes.");
+      System.out.println("  Current move decision has taken " + duration + " seconds.");
+    }
+    System.out.println("Executing move " + ret.toString());
+    return ret;
+  }
+
+  /**
    * Method that returns the player's next move according to the AlphaBeta Search Algorithm
    *
    * @param game the current game state, gaurenteed by the driver to have an available move
    */
-  public Move getMove(Board game) {
+  public Move getMoveHelper(Board game) {
     
-    currentNodesExplored = 0;
     Move ret = null;
     int mAlpha = Integer.MIN_VALUE;
     int mBeta = Integer.MAX_VALUE;
-    long startTime = System.nanoTime();
    
     /* Implementing a modified version of maxValue here so we can remember the moves
       associated with each value */
@@ -194,17 +230,6 @@ public class AlphaBetaPlayer extends Player {
 
     }
 
-    long endTime = System.nanoTime();
-    double duration = ((double)(endTime - startTime)) / 1000000000.0;
-
-
-    if(DEBUG == 1) {
-      System.out.println("  Current move decision has explored " + currentNodesExplored + " nodes.");
-      System.out.println("  Current move decision has taken " + duration + " seconds.");
-    }
-
-
-    System.out.println("Executing move " + ret.toString());
     return ret;
 
   }

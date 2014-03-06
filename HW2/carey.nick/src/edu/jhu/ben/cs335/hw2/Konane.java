@@ -9,6 +9,8 @@ import edu.jhu.ben.cs335.hw2.players.Player;
 import edu.jhu.ben.cs335.hw2.players.HumanPlayer;
 import edu.jhu.ben.cs335.hw2.players.MinimaxPlayer;
 import edu.jhu.ben.cs335.hw2.players.AlphaBetaPlayer;
+import edu.jhu.ben.cs335.hw2.players.TimeBoundIterativeDeepeningMinimaxPlayer;
+import edu.jhu.ben.cs335.hw2.players.TimeBoundIterativeDeepeningAlphaBetaPlayer;
 
 /**
  * Driver class for Konane program; see README for description and terms of use
@@ -42,19 +44,45 @@ public class Konane {
         System.out.print(" (1=human, 2=minmax, 3=alphabeta): ");
         int choice = stdin.nextInt();
         int maxSearchDepth = 1;
+        int bound = 0;
         switch (choice) {
           case 1:
             players[i] = new HumanPlayer();
             break;
           case 2:
-            System.out.print(" Specify Maximum Search Depth: ");
-            maxSearchDepth = stdin.nextInt();
-            players[i] = new MinimaxPlayer(maxSearchDepth, i);
+            System.out.print(" Specify 0 for fixed search depth, 1 for time-bounded search: ");
+            bound = stdin.nextInt();
+            if(bound == 0) {
+              System.out.print(" Specify Maximum Search Depth: ");
+              maxSearchDepth = stdin.nextInt();
+              players[i] = new MinimaxPlayer(maxSearchDepth, i);
+            }else{
+              System.out.print(" Specify Time Allowed per Turn in Seconds: ");
+              double timeAllowed = stdin.nextDouble();
+              players[i] = new TimeBoundIterativeDeepeningMinimaxPlayer(timeAllowed, i);
+            }
             break;
           case 3:
-            System.out.print(" Specify Maximum Search Depth: ");
-            maxSearchDepth = stdin.nextInt();
-            players[i] = new AlphaBetaPlayer(maxSearchDepth, i);
+            System.out.print(" Specify 0 for naive move-ordering, 1 for heuristic-based move ordering: ");
+            int moveOrder = stdin.nextInt();
+            boolean moveBool = false;
+            if(moveOrder == 0) {
+              moveBool = false;
+            } else {
+              moveBool = true;
+            }
+    
+            System.out.print(" Specify 0 for fixed search depth, 1 for time-bounded search: ");
+            bound = stdin.nextInt();
+            if(bound == 0) {
+              System.out.print(" Specify Maximum Search Depth: ");
+              maxSearchDepth = stdin.nextInt();
+              players[i] = new AlphaBetaPlayer(maxSearchDepth, i, moveBool);
+            }else{
+              System.out.print(" Specify Time Allowed per Turn in Seconds: ");
+              double timeAllowed = stdin.nextDouble();
+              players[i] = new TimeBoundIterativeDeepeningAlphaBetaPlayer(timeAllowed, i, moveBool);
+            }
             break;
           default:
             System.out.println("bad agent type given, please try again...");
