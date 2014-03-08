@@ -1,0 +1,1391 @@
+make: Entering directory `/home/ncarey/gitrepos/AI-HW/HW2/carey.nick/src'
+java -cp ../bin edu.jhu.ben.cs335.hw2.Konane 
+Let's play Konane!
+Enter board size: Enter player type for Black (1=human, 2=minmax, 3=alphabeta):  Specify 0 for naive move-ordering, 1 for heuristic-based move ordering:  Specify 0 for fixed search depth, 1 for time-bounded search:  Specify Maximum Search Depth: Enter player type for White (1=human, 2=minmax, 3=alphabeta):  Specify 0 for fixed search depth, 1 for time-bounded search:  Specify Maximum Search Depth: 
+===================
+Turn 0, black to play:
+-------------------
+| b w b w b w b w |
+| w b w b w b w b |
+| b w b w b w b w |
+| w b w b w b w b |
+| b w b w b w b w |
+| w b w b w b w b |
+| b w b w b w b w |
+| w b w b w b w b |
+-------------------
+  Move: (0, 0) -> (0, 0) has a util value of 3
+  Move: (3, 3) -> (3, 3) has a util value of 6
+  Move: (4, 4) -> (4, 4) has a util value of 6
+  Move: (7, 7) -> (7, 7) has a util value of 6
+  Current player has 4 moves to examine
+  Current move decision has explored 1744 nodes.
+  Current move decision has taken 0.096110825 seconds.
+Executing move (3, 3) -> (3, 3)
+Turn 1, white to play:
+-------------------
+| b w b w b w b w |
+| w b w b w b w b |
+| b w b w b w b w |
+| w b w . w b w b |
+| b w b w b w b w |
+| w b w b w b w b |
+| b w b w b w b w |
+| w b w b w b w b |
+-------------------
+  Move: (2, 3) -> (2, 3) has a util value of 10
+  Move: (3, 2) -> (3, 2) has a util value of 10
+  Move: (3, 4) -> (3, 4) has a util value of 10
+  Move: (4, 3) -> (4, 3) has a util value of 10
+  Current player has 4 moves to examine
+  Current move decision has explored 29596 nodes.
+  Current move decision has taken 0.227811441 seconds.
+Executing move (2, 3) -> (2, 3)
+Turn 2, black to play:
+-------------------
+| b w b w b w b w |
+| w b w b w b w b |
+| b w b . b w b w |
+| w b w . w b w b |
+| b w b w b w b w |
+| w b w b w b w b |
+| b w b w b w b w |
+| w b w b w b w b |
+-------------------
+  Move: (3, 1) -> (3, 3) has a util value of 7
+  Move: (3, 5) -> (3, 3) has a util value of 8
+  Move: (5, 3) -> (3, 3) has a util value of 9
+  Current player has 3 moves to examine
+  Current move decision has explored 8686 nodes.
+  Current move decision has taken 0.07831841 seconds.
+Executing move (5, 3) -> (3, 3)
+Turn 3, white to play:
+-------------------
+| b w b w b w b w |
+| w b w b w b w b |
+| b w b . b w b w |
+| w b w b w b w b |
+| b w b . b w b w |
+| w b w . w b w b |
+| b w b w b w b w |
+| w b w b w b w b |
+-------------------
+  Move: (0, 3) -> (2, 3) has a util value of 9
+  Move: (0, 3) -> (4, 3) has a util value of 9
+  Move: (2, 1) -> (2, 3) has a util value of 9
+  Move: (2, 5) -> (2, 3) has a util value of 10
+  Move: (4, 1) -> (4, 3) has a util value of 9
+  Move: (4, 5) -> (4, 3) has a util value of 10
+  Current player has 6 moves to examine
+  Current move decision has explored 296993 nodes.
+  Current move decision has taken 1.569795712 seconds.
+Executing move (2, 5) -> (2, 3)
+Turn 4, black to play:
+-------------------
+| b w b w b w b w |
+| w b w b w b w b |
+| b w b w . . b w |
+| w b w b w b w b |
+| b w b . b w b w |
+| w b w . w b w b |
+| b w b w b w b w |
+| w b w b w b w b |
+-------------------
+  Move: (0, 4) -> (2, 4) has a util value of 9
+  Move: (2, 2) -> (2, 4) has a util value of 11
+  Move: (4, 4) -> (2, 4) has a util value of 11
+  Move: (5, 1) -> (5, 3) has a util value of 11
+  Move: (5, 5) -> (5, 3) has a util value of 11
+  Move: (7, 3) -> (5, 3) has a util value of 11
+  Current player has 6 moves to examine
+  Current move decision has explored 13031 nodes.
+  Current move decision has taken 0.079174104 seconds.
+Executing move (2, 2) -> (2, 4)
+Turn 5, white to play:
+-------------------
+| b w b w b w b w |
+| w b w b w b w b |
+| b w . . b . b w |
+| w b w b w b w b |
+| b w b . b w b w |
+| w b w . w b w b |
+| b w b w b w b w |
+| w b w b w b w b |
+-------------------
+  Move: (0, 3) -> (2, 3) has a util value of 10
+  Move: (0, 3) -> (4, 3) has a util value of 10
+  Move: (0, 5) -> (2, 5) has a util value of 10
+  Move: (2, 7) -> (2, 5) has a util value of 10
+  Move: (2, 7) -> (2, 3) has a util value of 11
+  Move: (4, 1) -> (4, 3) has a util value of 10
+  Move: (4, 5) -> (2, 5) has a util value of 10
+  Move: (4, 5) -> (4, 3) has a util value of 11
+  Current player has 8 moves to examine
+  Current move decision has explored 1549104 nodes.
+  Current move decision has taken 7.751755234 seconds.
+Executing move (2, 7) -> (2, 3)
+Turn 6, black to play:
+-------------------
+| b w b w b w b w |
+| w b w b w b w b |
+| b w . w . . . . |
+| w b w b w b w b |
+| b w b . b w b w |
+| w b w . w b w b |
+| b w b w b w b w |
+| w b w b w b w b |
+-------------------
+  Move: (0, 2) -> (2, 2) has a util value of 12
+  Move: (0, 4) -> (2, 4) has a util value of 12
+  Move: (0, 6) -> (2, 6) has a util value of 12
+  Move: (2, 0) -> (2, 2) has a util value of 12
+  Move: (2, 0) -> (2, 4) has a util value of 12
+  Move: (4, 2) -> (2, 2) has a util value of 12
+  Move: (4, 4) -> (2, 4) has a util value of 13
+  Move: (4, 6) -> (2, 6) has a util value of 13
+  Move: (5, 1) -> (5, 3) has a util value of 13
+  Move: (5, 5) -> (5, 3) has a util value of 13
+  Move: (7, 3) -> (5, 3) has a util value of 13
+  Current player has 11 moves to examine
+  Current move decision has explored 89826 nodes.
+  Current move decision has taken 0.543880615 seconds.
+Executing move (4, 4) -> (2, 4)
+Turn 7, white to play:
+-------------------
+| b w b w b w b w |
+| w b w b w b w b |
+| b w . w b . . . |
+| w b w b . b w b |
+| b w b . . w b w |
+| w b w . w b w b |
+| b w b w b w b w |
+| w b w b w b w b |
+-------------------
+  Move: (0, 5) -> (2, 5) has a util value of 10
+  Move: (0, 7) -> (2, 7) has a util value of 9
+  Move: (1, 4) -> (3, 4) has a util value of 11
+  Move: (2, 3) -> (2, 5) has a util value of 10
+  Move: (2, 3) -> (4, 3) has a util value of 9
+  Move: (3, 2) -> (3, 4) has a util value of 10
+  Move: (3, 6) -> (3, 4) has a util value of 9
+  Move: (4, 1) -> (4, 3) has a util value of 11
+  Move: (4, 5) -> (2, 5) has a util value of 10
+  Move: (4, 7) -> (2, 7) has a util value of 11
+  Current player has 10 moves to examine
+  Current move decision has explored 3754434 nodes.
+  Current move decision has taken 18.450701239 seconds.
+Executing move (1, 4) -> (3, 4)
+Turn 8, black to play:
+-------------------
+| b w b w b w b w |
+| w b w b . b w b |
+| b w . w . . . . |
+| w b w b w b w b |
+| b w b . . w b w |
+| w b w . w b w b |
+| b w b w b w b w |
+| w b w b w b w b |
+-------------------
+  Move: (0, 2) -> (2, 2) has a util value of 13
+  Move: (0, 6) -> (2, 6) has a util value of 13
+  Move: (2, 0) -> (2, 2) has a util value of 14
+  Move: (2, 0) -> (2, 4) has a util value of 14
+  Move: (4, 2) -> (2, 2) has a util value of 14
+  Move: (4, 6) -> (2, 6) has a util value of 14
+  Move: (4, 6) -> (4, 4) has a util value of 14
+  Move: (5, 1) -> (5, 3) has a util value of 14
+  Move: (5, 5) -> (5, 3) has a util value of 14
+  Move: (6, 4) -> (4, 4) has a util value of 14
+  Move: (6, 4) -> (2, 4) has a util value of 14
+  Move: (7, 3) -> (5, 3) has a util value of 14
+  Current player has 12 moves to examine
+  Current move decision has explored 45819 nodes.
+  Current move decision has taken 0.305429203 seconds.
+Executing move (2, 0) -> (2, 2)
+Turn 9, white to play:
+-------------------
+| b w b w b w b w |
+| w b w b . b w b |
+| . . b w . . . . |
+| w b w b w b w b |
+| b w b . . w b w |
+| w b w . w b w b |
+| b w b w b w b w |
+| w b w b w b w b |
+-------------------
+  Move: (0, 1) -> (2, 1) has a util value of 11
+  Move: (0, 5) -> (2, 5) has a util value of 12
+  Move: (0, 7) -> (2, 7) has a util value of 10
+  Move: (1, 2) -> (1, 4) has a util value of 10
+  Move: (1, 6) -> (1, 4) has a util value of 9
+  Move: (2, 3) -> (2, 1) has a util value of 12
+  Move: (2, 3) -> (4, 3) has a util value of 11
+  Move: (4, 1) -> (2, 1) has a util value of 11
+  Move: (4, 1) -> (4, 3) has a util value of 12
+  Move: (4, 5) -> (2, 5) has a util value of 11
+  Move: (4, 7) -> (2, 7) has a util value of 12
+  Current player has 11 moves to examine
+  Current move decision has explored 5606638 nodes.
+  Current move decision has taken 27.403272791 seconds.
+Executing move (0, 5) -> (2, 5)
+Turn 10, black to play:
+-------------------
+| b w b w b . b w |
+| w b w b . . w b |
+| . . b w . w . . |
+| w b w b w b w b |
+| b w b . . w b w |
+| w b w . w b w b |
+| b w b w b w b w |
+| w b w b w b w b |
+-------------------
+  Move: (0, 0) -> (2, 0) has a util value of 14
+  Move: (0, 6) -> (2, 6) has a util value of 14
+  Move: (1, 7) -> (1, 5) has a util value of 14
+  Move: (2, 2) -> (2, 4) has a util value of 14
+  Move: (2, 2) -> (2, 6) has a util value of 14
+  Move: (3, 5) -> (1, 5) has a util value of 15
+  Move: (4, 0) -> (2, 0) has a util value of 15
+  Move: (4, 6) -> (2, 6) has a util value of 15
+  Move: (4, 6) -> (4, 4) has a util value of 15
+  Move: (5, 1) -> (5, 3) has a util value of 15
+  Move: (5, 5) -> (5, 3) has a util value of 15
+  Move: (6, 4) -> (4, 4) has a util value of 15
+  Move: (6, 4) -> (2, 4) has a util value of 15
+  Move: (7, 3) -> (5, 3) has a util value of 15
+  Current player has 14 moves to examine
+  Current move decision has explored 71697 nodes.
+  Current move decision has taken 0.480876933 seconds.
+Executing move (3, 5) -> (1, 5)
+Turn 11, white to play:
+-------------------
+| b w b w b . b w |
+| w b w b . b w b |
+| . . b w . . . . |
+| w b w b w . w b |
+| b w b . . w b w |
+| w b w . w b w b |
+| b w b w b w b w |
+| w b w b w b w b |
+-------------------
+  Move: (0, 1) -> (2, 1) has a util value of 9
+  Move: (0, 3) -> (0, 5) has a util value of 11
+  Move: (0, 7) -> (0, 5) has a util value of 9
+  Move: (0, 7) -> (2, 7) has a util value of 10
+  Move: (1, 2) -> (1, 4) has a util value of 11
+  Move: (1, 6) -> (1, 4) has a util value of 9
+  Move: (2, 3) -> (2, 1) has a util value of 11
+  Move: (2, 3) -> (4, 3) has a util value of 11
+  Move: (4, 1) -> (2, 1) has a util value of 10
+  Move: (4, 1) -> (4, 3) has a util value of 11
+  Move: (4, 7) -> (2, 7) has a util value of 11
+  Current player has 11 moves to examine
+  Current move decision has explored 7478546 nodes.
+  Current move decision has taken 35.480301371 seconds.
+Executing move (0, 3) -> (0, 5)
+Turn 12, black to play:
+-------------------
+| b w b . . w b w |
+| w b w b . b w b |
+| . . b w . . . . |
+| w b w b w . w b |
+| b w b . . w b w |
+| w b w . w b w b |
+| b w b w b w b w |
+| w b w b w b w b |
+-------------------
+  Move: (0, 0) -> (2, 0) has a util value of 13
+  Move: (0, 6) -> (0, 4) has a util value of 13
+  Move: (0, 6) -> (2, 6) has a util value of 13
+  Move: (2, 2) -> (2, 4) has a util value of 15
+  Move: (3, 3) -> (3, 5) has a util value of 15
+  Move: (3, 7) -> (3, 5) has a util value of 15
+  Move: (4, 0) -> (2, 0) has a util value of 16
+  Move: (4, 6) -> (2, 6) has a util value of 16
+  Move: (4, 6) -> (4, 4) has a util value of 16
+  Move: (5, 1) -> (5, 3) has a util value of 16
+  Move: (5, 5) -> (3, 5) has a util value of 16
+  Move: (5, 5) -> (5, 3) has a util value of 16
+  Move: (6, 4) -> (4, 4) has a util value of 16
+  Move: (6, 4) -> (2, 4) has a util value of 16
+  Move: (7, 3) -> (5, 3) has a util value of 16
+  Current player has 15 moves to examine
+  Current move decision has explored 57823 nodes.
+  Current move decision has taken 0.417385549 seconds.
+Executing move (4, 0) -> (2, 0)
+Turn 13, white to play:
+-------------------
+| b w b . . w b w |
+| w b w b . b w b |
+| b . b w . . . . |
+| . b w b w . w b |
+| . w b . . w b w |
+| w b w . w b w b |
+| b w b w b w b w |
+| w b w b w b w b |
+-------------------
+  Move: (0, 1) -> (0, 3) has a util value of 10
+  Move: (0, 1) -> (2, 1) has a util value of 8
+  Move: (0, 5) -> (2, 5) has a util value of 12
+  Move: (0, 7) -> (2, 7) has a util value of 11
+  Move: (1, 0) -> (3, 0) has a util value of 11
+  Move: (1, 2) -> (1, 4) has a util value of 11
+  Move: (1, 6) -> (1, 4) has a util value of 10
+  Move: (2, 3) -> (0, 3) has a util value of 10
+  Move: (2, 3) -> (2, 1) has a util value of 11
+  Move: (2, 3) -> (4, 3) has a util value of 10
+  Move: (3, 2) -> (3, 0) has a util value of 10
+  Move: (4, 1) -> (2, 1) has a util value of 10
+  Move: (4, 1) -> (4, 3) has a util value of 12
+  Move: (4, 7) -> (2, 7) has a util value of 12
+  Current player has 14 moves to examine
+  Current move decision has explored 12716973 nodes.
+  Current move decision has taken 58.83765757 seconds.
+Executing move (0, 5) -> (2, 5)
+Turn 14, black to play:
+-------------------
+| b w b . . . b w |
+| w b w b . . w b |
+| b . b w . w . . |
+| . b w b w . w b |
+| . w b . . w b w |
+| w b w . w b w b |
+| b w b w b w b w |
+| w b w b w b w b |
+-------------------
+  Move: (0, 6) -> (2, 6) has a util value of 13
+  Move: (1, 7) -> (1, 5) has a util value of 14
+  Move: (2, 2) -> (2, 4) has a util value of 15
+  Move: (2, 2) -> (2, 6) has a util value of 15
+  Move: (3, 3) -> (3, 5) has a util value of 15
+  Move: (3, 7) -> (3, 5) has a util value of 15
+  Move: (4, 2) -> (4, 0) has a util value of 15
+  Move: (4, 6) -> (2, 6) has a util value of 15
+  Move: (4, 6) -> (4, 4) has a util value of 15
+  Move: (5, 1) -> (5, 3) has a util value of 15
+  Move: (5, 5) -> (3, 5) has a util value of 15
+  Move: (5, 5) -> (1, 5) has a util value of 15
+  Move: (5, 5) -> (5, 3) has a util value of 15
+  Move: (6, 0) -> (4, 0) has a util value of 15
+  Move: (6, 4) -> (4, 4) has a util value of 15
+  Move: (6, 4) -> (2, 4) has a util value of 15
+  Move: (7, 3) -> (5, 3) has a util value of 15
+  Current player has 17 moves to examine
+  Current move decision has explored 144286 nodes.
+  Current move decision has taken 0.980126663 seconds.
+Executing move (2, 2) -> (2, 4)
+Turn 15, white to play:
+-------------------
+| b w b . . . b w |
+| w b w b . . w b |
+| b . . . b w . . |
+| . b w b w . w b |
+| . w b . . w b w |
+| w b w . w b w b |
+| b w b w b w b w |
+| w b w b w b w b |
+-------------------
+  Move: (0, 1) -> (0, 3) has a util value of 11
+  Move: (0, 1) -> (2, 1) has a util value of 7
+  Move: (0, 7) -> (0, 5) has a util value of 12
+  Move: (0, 7) -> (2, 7) has a util value of 9
+  Move: (1, 0) -> (3, 0) has a util value of 10
+  Move: (1, 2) -> (1, 4) has a util value of 10
+  Move: (2, 5) -> (2, 3) has a util value of 12
+  Move: (3, 2) -> (3, 0) has a util value of 9
+  Move: (3, 4) -> (1, 4) has a util value of 10
+  Move: (4, 1) -> (2, 1) has a util value of 8
+  Move: (4, 1) -> (4, 3) has a util value of 12
+  Move: (4, 7) -> (2, 7) has a util value of 12
+  Current player has 12 moves to examine
+  Current move decision has explored 11585485 nodes.
+  Current move decision has taken 51.273081864 seconds.
+Executing move (0, 7) -> (0, 5)
+Turn 16, black to play:
+-------------------
+| b w b . . w . . |
+| w b w b . . w b |
+| b . . . b w . . |
+| . b w b w . w b |
+| . w b . . w b w |
+| w b w . w b w b |
+| b w b w b w b w |
+| w b w b w b w b |
+-------------------
+  Move: (0, 2) -> (2, 2) has a util value of 14
+  Move: (1, 7) -> (1, 5) has a util value of 14
+  Move: (2, 4) -> (2, 6) has a util value of 14
+  Move: (2, 4) -> (4, 4) has a util value of 14
+  Move: (3, 3) -> (3, 5) has a util value of 14
+  Move: (3, 7) -> (3, 5) has a util value of 14
+  Move: (4, 2) -> (2, 2) has a util value of 14
+  Move: (4, 2) -> (4, 0) has a util value of 14
+  Move: (4, 6) -> (2, 6) has a util value of 14
+  Move: (4, 6) -> (0, 6) has a util value of 14
+  Move: (4, 6) -> (4, 4) has a util value of 14
+  Move: (5, 1) -> (5, 3) has a util value of 14
+  Move: (5, 5) -> (3, 5) has a util value of 14
+  Move: (5, 5) -> (1, 5) has a util value of 14
+  Move: (5, 5) -> (5, 3) has a util value of 14
+  Move: (6, 0) -> (4, 0) has a util value of 14
+  Move: (6, 4) -> (4, 4) has a util value of 14
+  Move: (7, 3) -> (5, 3) has a util value of 14
+  Current player has 18 moves to examine
+  Current move decision has explored 90849 nodes.
+  Current move decision has taken 0.596700391 seconds.
+Executing move (0, 2) -> (2, 2)
+Turn 17, white to play:
+-------------------
+| b w . . . w . . |
+| w b . b . . w b |
+| b . b . b w . . |
+| . b w b w . w b |
+| . w b . . w b w |
+| w b w . w b w b |
+| b w b w b w b w |
+| w b w b w b w b |
+-------------------
+  Move: (0, 1) -> (2, 1) has a util value of 9
+  Move: (1, 0) -> (1, 2) has a util value of 8
+  Move: (1, 0) -> (1, 4) has a util value of 7
+  Move: (1, 0) -> (3, 0) has a util value of 11
+  Move: (2, 5) -> (2, 3) has a util value of 10
+  Move: (2, 5) -> (2, 1) has a util value of 7
+  Move: (3, 2) -> (1, 2) has a util value of 11
+  Move: (3, 2) -> (3, 0) has a util value of 8
+  Move: (3, 4) -> (1, 4) has a util value of 11
+  Move: (4, 1) -> (2, 1) has a util value of 9
+  Move: (4, 1) -> (4, 3) has a util value of 11
+  Move: (4, 7) -> (2, 7) has a util value of 11
+  Move: (4, 7) -> (0, 7) has a util value of 9
+  Current player has 13 moves to examine
+  Current move decision has explored 9869258 nodes.
+  Current move decision has taken 42.286367562 seconds.
+Executing move (1, 0) -> (3, 0)
+Turn 18, black to play:
+-------------------
+| b w . . . w . . |
+| . b . b . . w b |
+| . . b . b w . . |
+| w b w b w . w b |
+| . w b . . w b w |
+| w b w . w b w b |
+| b w b w b w b w |
+| w b w b w b w b |
+-------------------
+  Move: (0, 0) -> (0, 2) has a util value of 14
+  Move: (1, 7) -> (1, 5) has a util value of 14
+  Move: (2, 4) -> (2, 6) has a util value of 14
+  Move: (2, 4) -> (4, 4) has a util value of 14
+  Move: (3, 3) -> (3, 5) has a util value of 14
+  Move: (3, 7) -> (3, 5) has a util value of 14
+  Move: (4, 2) -> (4, 0) has a util value of 14
+  Move: (4, 6) -> (2, 6) has a util value of 14
+  Move: (4, 6) -> (0, 6) has a util value of 14
+  Move: (4, 6) -> (4, 4) has a util value of 14
+  Move: (5, 1) -> (5, 3) has a util value of 14
+  Move: (5, 5) -> (3, 5) has a util value of 14
+  Move: (5, 5) -> (1, 5) has a util value of 14
+  Move: (5, 5) -> (5, 3) has a util value of 14
+  Move: (6, 0) -> (4, 0) has a util value of 14
+  Move: (6, 0) -> (2, 0) has a util value of 14
+  Move: (6, 4) -> (4, 4) has a util value of 14
+  Move: (7, 3) -> (5, 3) has a util value of 14
+  Current player has 18 moves to examine
+  Current move decision has explored 110838 nodes.
+  Current move decision has taken 0.625987285 seconds.
+Executing move (0, 0) -> (0, 2)
+Turn 19, white to play:
+-------------------
+| . . b . . w . . |
+| . b . b . . w b |
+| . . b . b w . . |
+| w b w b w . w b |
+| . w b . . w b w |
+| w b w . w b w b |
+| b w b w b w b w |
+| w b w b w b w b |
+-------------------
+  Move: (2, 5) -> (2, 3) has a util value of 8
+  Move: (2, 5) -> (2, 1) has a util value of 5
+  Move: (3, 2) -> (1, 2) has a util value of 9
+  Move: (3, 4) -> (1, 4) has a util value of 8
+  Move: (4, 1) -> (2, 1) has a util value of 7
+  Move: (4, 1) -> (0, 1) has a util value of 7
+  Move: (4, 1) -> (4, 3) has a util value of 9
+  Move: (4, 7) -> (2, 7) has a util value of 9
+  Move: (4, 7) -> (0, 7) has a util value of 7
+  Current player has 9 moves to examine
+  Current move decision has explored 4859833 nodes.
+  Current move decision has taken 19.734488653 seconds.
+Executing move (3, 2) -> (1, 2)
+Turn 20, black to play:
+-------------------
+| . . b . . w . . |
+| . b w b . . w b |
+| . . . . b w . . |
+| w b . b w . w b |
+| . w b . . w b w |
+| w b w . w b w b |
+| b w b w b w b w |
+| w b w b w b w b |
+-------------------
+  Move: (0, 2) -> (2, 2) has a util value of 13
+  Move: (1, 7) -> (1, 5) has a util value of 13
+  Move: (2, 4) -> (2, 6) has a util value of 13
+  Move: (2, 4) -> (4, 4) has a util value of 13
+  Move: (3, 3) -> (3, 5) has a util value of 13
+  Move: (3, 7) -> (3, 5) has a util value of 13
+  Move: (4, 2) -> (4, 0) has a util value of 13
+  Move: (4, 6) -> (2, 6) has a util value of 13
+  Move: (4, 6) -> (0, 6) has a util value of 13
+  Move: (4, 6) -> (4, 4) has a util value of 13
+  Move: (5, 1) -> (5, 3) has a util value of 13
+  Move: (5, 5) -> (3, 5) has a util value of 13
+  Move: (5, 5) -> (1, 5) has a util value of 13
+  Move: (5, 5) -> (5, 3) has a util value of 13
+  Move: (6, 0) -> (4, 0) has a util value of 13
+  Move: (6, 0) -> (2, 0) has a util value of 13
+  Move: (6, 4) -> (4, 4) has a util value of 13
+  Move: (7, 3) -> (5, 3) has a util value of 13
+  Current player has 18 moves to examine
+  Current move decision has explored 175904 nodes.
+  Current move decision has taken 0.914781132 seconds.
+Executing move (0, 2) -> (2, 2)
+Turn 21, white to play:
+-------------------
+| . . . . . w . . |
+| . b . b . . w b |
+| . . b . b w . . |
+| w b . b w . w b |
+| . w b . . w b w |
+| w b w . w b w b |
+| b w b w b w b w |
+| w b w b w b w b |
+-------------------
+  Move: (2, 5) -> (2, 3) has a util value of 8
+  Move: (2, 5) -> (2, 1) has a util value of 6
+  Move: (3, 0) -> (3, 2) has a util value of 7
+  Move: (3, 4) -> (1, 4) has a util value of 7
+  Move: (3, 4) -> (3, 2) has a util value of 7
+  Move: (4, 1) -> (2, 1) has a util value of 9
+  Move: (4, 1) -> (0, 1) has a util value of 7
+  Move: (4, 1) -> (4, 3) has a util value of 8
+  Move: (4, 7) -> (2, 7) has a util value of 8
+  Move: (4, 7) -> (0, 7) has a util value of 7
+  Move: (5, 2) -> (3, 2) has a util value of 10
+  Move: (5, 2) -> (1, 2) has a util value of 11
+  Current player has 12 moves to examine
+  Current move decision has explored 5736005 nodes.
+  Current move decision has taken 22.351020057 seconds.
+Executing move (5, 2) -> (1, 2)
+Turn 22, black to play:
+-------------------
+| . . . . . w . . |
+| . b w b . . w b |
+| . . . . b w . . |
+| w b . b w . w b |
+| . w . . . w b w |
+| w b . . w b w b |
+| b w b w b w b w |
+| w b w b w b w b |
+-------------------
+  Move: (1, 7) -> (1, 5) has a util value of 10
+  Move: (2, 4) -> (2, 6) has a util value of 10
+  Move: (2, 4) -> (4, 4) has a util value of 10
+  Move: (3, 3) -> (3, 5) has a util value of 10
+  Move: (3, 7) -> (3, 5) has a util value of 10
+  Move: (4, 6) -> (2, 6) has a util value of 10
+  Move: (4, 6) -> (0, 6) has a util value of 10
+  Move: (4, 6) -> (4, 4) has a util value of 10
+  Move: (5, 5) -> (3, 5) has a util value of 11
+  Move: (5, 5) -> (1, 5) has a util value of 11
+  Move: (5, 5) -> (5, 3) has a util value of 11
+  Move: (6, 0) -> (4, 0) has a util value of 11
+  Move: (6, 0) -> (2, 0) has a util value of 11
+  Move: (6, 4) -> (4, 4) has a util value of 11
+  Move: (7, 3) -> (5, 3) has a util value of 11
+  Current player has 15 moves to examine
+  Current move decision has explored 129487 nodes.
+  Current move decision has taken 0.645848749 seconds.
+Executing move (5, 5) -> (3, 5)
+Turn 23, white to play:
+-------------------
+| . . . . . w . . |
+| . b w b . . w b |
+| . . . . b w . . |
+| w b . b w b w b |
+| . w . . . . b w |
+| w b . . w . w b |
+| b w b w b w b w |
+| w b w b w b w b |
+-------------------
+  Move: (1, 2) -> (1, 0) has a util value of 9
+  Move: (1, 2) -> (1, 4) has a util value of 9
+  Move: (2, 5) -> (2, 3) has a util value of 12
+  Move: (2, 5) -> (4, 5) has a util value of 10
+  Move: (3, 0) -> (3, 2) has a util value of 8
+  Move: (3, 4) -> (1, 4) has a util value of 9
+  Move: (3, 4) -> (3, 2) has a util value of 9
+  Move: (4, 1) -> (2, 1) has a util value of 10
+  Move: (4, 1) -> (0, 1) has a util value of 8
+  Move: (4, 7) -> (2, 7) has a util value of 11
+  Move: (4, 7) -> (0, 7) has a util value of 10
+  Move: (4, 7) -> (4, 5) has a util value of 12
+  Move: (5, 0) -> (5, 2) has a util value of 9
+  Move: (7, 2) -> (5, 2) has a util value of 12
+  Current player has 14 moves to examine
+  Current move decision has explored 7005691 nodes.
+  Current move decision has taken 26.443517993 seconds.
+Executing move (2, 5) -> (2, 3)
+Turn 24, black to play:
+-------------------
+| . . . . . w . . |
+| . b w b . . w b |
+| . . . w . . . . |
+| w b . b w b w b |
+| . w . . . . b w |
+| w b . . w . w b |
+| b w b w b w b w |
+| w b w b w b w b |
+-------------------
+  Move: (1, 7) -> (1, 5) has a util value of 9
+  Move: (4, 6) -> (2, 6) has a util value of 9
+  Move: (4, 6) -> (0, 6) has a util value of 9
+  Move: (5, 7) -> (5, 5) has a util value of 9
+  Move: (5, 7) -> (5, 3) has a util value of 9
+  Move: (6, 0) -> (4, 0) has a util value of 9
+  Move: (6, 0) -> (2, 0) has a util value of 9
+  Move: (6, 4) -> (4, 4) has a util value of 10
+  Move: (6, 4) -> (2, 4) has a util value of 10
+  Move: (7, 3) -> (5, 3) has a util value of 10
+  Move: (7, 5) -> (5, 5) has a util value of 10
+  Current player has 11 moves to examine
+  Current move decision has explored 48544 nodes.
+  Current move decision has taken 0.263707627 seconds.
+Executing move (6, 4) -> (4, 4)
+Turn 25, white to play:
+-------------------
+| . . . . . w . . |
+| . b w b . . w b |
+| . . . w . . . . |
+| w b . b w b w b |
+| . w . . b . b w |
+| w b . . . . w b |
+| b w b w . w b w |
+| w b w b w b w b |
+-------------------
+  Move: (1, 2) -> (1, 0) has a util value of 9
+  Move: (1, 2) -> (1, 4) has a util value of 9
+  Move: (2, 3) -> (0, 3) has a util value of 9
+  Move: (2, 3) -> (4, 3) has a util value of 9
+  Move: (3, 0) -> (3, 2) has a util value of 8
+  Move: (3, 4) -> (3, 2) has a util value of 8
+  Move: (3, 4) -> (5, 4) has a util value of 11
+  Move: (4, 1) -> (2, 1) has a util value of 9
+  Move: (4, 1) -> (0, 1) has a util value of 7
+  Move: (4, 7) -> (2, 7) has a util value of 11
+  Move: (4, 7) -> (0, 7) has a util value of 10
+  Move: (4, 7) -> (4, 5) has a util value of 12
+  Move: (4, 7) -> (4, 3) has a util value of 10
+  Move: (5, 0) -> (5, 2) has a util value of 11
+  Move: (7, 2) -> (5, 2) has a util value of 12
+  Current player has 15 moves to examine
+  Current move decision has explored 5691067 nodes.
+  Current move decision has taken 20.002993119 seconds.
+Executing move (4, 7) -> (4, 5)
+Turn 26, black to play:
+-------------------
+| . . . . . w . . |
+| . b w b . . w b |
+| . . . w . . . . |
+| w b . b w b w b |
+| . w . . b w . . |
+| w b . . . . w b |
+| b w b w . w b w |
+| w b w b w b w b |
+-------------------
+  Move: (1, 7) -> (1, 5) has a util value of 9
+  Move: (3, 5) -> (5, 5) has a util value of 9
+  Move: (4, 4) -> (2, 4) has a util value of 9
+  Move: (4, 4) -> (4, 6) has a util value of 9
+  Move: (5, 7) -> (5, 5) has a util value of 9
+  Move: (6, 0) -> (4, 0) has a util value of 9
+  Move: (6, 0) -> (2, 0) has a util value of 9
+  Move: (6, 2) -> (6, 4) has a util value of 9
+  Move: (6, 6) -> (4, 6) has a util value of 9
+  Move: (6, 6) -> (2, 6) has a util value of 9
+  Move: (6, 6) -> (0, 6) has a util value of 9
+  Move: (6, 6) -> (6, 4) has a util value of 9
+  Move: (7, 3) -> (5, 3) has a util value of 9
+  Move: (7, 5) -> (5, 5) has a util value of 9
+  Current player has 14 moves to examine
+  Current move decision has explored 31746 nodes.
+  Current move decision has taken 0.179875388 seconds.
+Executing move (1, 7) -> (1, 5)
+Turn 27, white to play:
+-------------------
+| . . . . . w . . |
+| . b w b . b . . |
+| . . . w . . . . |
+| w b . b w b w b |
+| . w . . b w . . |
+| w b . . . . w b |
+| b w b w . w b w |
+| w b w b w b w b |
+-------------------
+  Move: (0, 5) -> (2, 5) has a util value of 10
+  Move: (1, 2) -> (1, 0) has a util value of 9
+  Move: (1, 2) -> (1, 4) has a util value of 10
+  Move: (1, 2) -> (1, 6) has a util value of 6
+  Move: (2, 3) -> (0, 3) has a util value of 10
+  Move: (2, 3) -> (4, 3) has a util value of 10
+  Move: (3, 0) -> (3, 2) has a util value of 9
+  Move: (3, 4) -> (3, 2) has a util value of 10
+  Move: (3, 4) -> (5, 4) has a util value of 12
+  Move: (4, 1) -> (2, 1) has a util value of 10
+  Move: (4, 1) -> (0, 1) has a util value of 8
+  Move: (4, 5) -> (2, 5) has a util value of 9
+  Move: (4, 5) -> (4, 3) has a util value of 13
+  Move: (5, 0) -> (5, 2) has a util value of 12
+  Move: (6, 7) -> (4, 7) has a util value of 11
+  Move: (6, 7) -> (2, 7) has a util value of 10
+  Move: (7, 2) -> (5, 2) has a util value of 11
+  Current player has 17 moves to examine
+  Current move decision has explored 6605416 nodes.
+  Current move decision has taken 22.240207851 seconds.
+Executing move (4, 5) -> (4, 3)
+Turn 28, black to play:
+-------------------
+| . . . . . w . . |
+| . b w b . b . . |
+| . . . w . . . . |
+| w b . b w b w b |
+| . w . w . . . . |
+| w b . . . . w b |
+| b w b w . w b w |
+| w b w b w b w b |
+-------------------
+  Move: (3, 3) -> (5, 3) has a util value of 7
+  Move: (5, 7) -> (5, 5) has a util value of 7
+  Move: (6, 0) -> (4, 0) has a util value of 7
+  Move: (6, 0) -> (2, 0) has a util value of 7
+  Move: (6, 2) -> (6, 4) has a util value of 7
+  Move: (6, 6) -> (4, 6) has a util value of 7
+  Move: (6, 6) -> (2, 6) has a util value of 7
+  Move: (6, 6) -> (6, 4) has a util value of 7
+  Move: (7, 3) -> (5, 3) has a util value of 7
+  Move: (7, 5) -> (5, 5) has a util value of 7
+  Current player has 10 moves to examine
+  Current move decision has explored 16833 nodes.
+  Current move decision has taken 0.091635186 seconds.
+Executing move (3, 3) -> (5, 3)
+Turn 29, white to play:
+-------------------
+| . . . . . w . . |
+| . b w b . b . . |
+| . . . w . . . . |
+| w b . . w b w b |
+| . w . . . . . . |
+| w b . b . . w b |
+| b w b w . w b w |
+| w b w b w b w b |
+-------------------
+  Move: (0, 5) -> (2, 5) has a util value of 10
+  Move: (0, 5) -> (4, 5) has a util value of 9
+  Move: (1, 2) -> (1, 0) has a util value of 10
+  Move: (1, 2) -> (1, 4) has a util value of 9
+  Move: (1, 2) -> (1, 6) has a util value of 8
+  Move: (2, 3) -> (0, 3) has a util value of 10
+  Move: (3, 0) -> (3, 2) has a util value of 8
+  Move: (4, 1) -> (2, 1) has a util value of 10
+  Move: (4, 1) -> (0, 1) has a util value of 9
+  Move: (5, 0) -> (5, 2) has a util value of 10
+  Move: (5, 0) -> (5, 4) has a util value of 9
+  Move: (6, 3) -> (4, 3) has a util value of 8
+  Move: (6, 7) -> (4, 7) has a util value of 11
+  Move: (6, 7) -> (2, 7) has a util value of 10
+  Move: (7, 2) -> (5, 2) has a util value of 12
+  Current player has 15 moves to examine
+  Current move decision has explored 2535230 nodes.
+  Current move decision has taken 7.923554036 seconds.
+Executing move (7, 2) -> (5, 2)
+Turn 30, black to play:
+-------------------
+| . . . . . w . . |
+| . b w b . b . . |
+| . . . w . . . . |
+| w b . . w b w b |
+| . w . . . . . . |
+| w b w b . . w b |
+| b w . w . w b w |
+| w b . b w b w b |
+-------------------
+  Move: (1, 3) -> (3, 3) has a util value of 5
+  Move: (3, 5) -> (3, 3) has a util value of 7
+  Move: (5, 7) -> (5, 5) has a util value of 7
+  Move: (6, 0) -> (4, 0) has a util value of 7
+  Move: (6, 0) -> (2, 0) has a util value of 7
+  Move: (6, 0) -> (6, 2) has a util value of 7
+  Move: (6, 0) -> (6, 4) has a util value of 6
+  Move: (6, 6) -> (4, 6) has a util value of 7
+  Move: (6, 6) -> (2, 6) has a util value of 7
+  Move: (6, 6) -> (6, 4) has a util value of 7
+  Move: (6, 6) -> (6, 2) has a util value of 7
+  Move: (7, 5) -> (5, 5) has a util value of 7
+  Current player has 12 moves to examine
+  Current move decision has explored 20431 nodes.
+  Current move decision has taken 0.109801184 seconds.
+Executing move (3, 5) -> (3, 3)
+Turn 31, white to play:
+-------------------
+| . . . . . w . . |
+| . b w b . b . . |
+| . . . w . . . . |
+| w b . b . . w b |
+| . w . . . . . . |
+| w b w b . . w b |
+| b w . w . w b w |
+| w b . b w b w b |
+-------------------
+  Move: (0, 5) -> (2, 5) has a util value of 12
+  Move: (1, 2) -> (1, 0) has a util value of 10
+  Move: (1, 2) -> (1, 4) has a util value of 9
+  Move: (1, 2) -> (1, 6) has a util value of 7
+  Move: (2, 3) -> (0, 3) has a util value of 10
+  Move: (2, 3) -> (4, 3) has a util value of 9
+  Move: (3, 0) -> (3, 2) has a util value of 10
+  Move: (3, 0) -> (3, 4) has a util value of 8
+  Move: (4, 1) -> (2, 1) has a util value of 10
+  Move: (4, 1) -> (0, 1) has a util value of 8
+  Move: (5, 2) -> (5, 4) has a util value of 10
+  Move: (6, 3) -> (4, 3) has a util value of 8
+  Move: (6, 7) -> (4, 7) has a util value of 13
+  Move: (6, 7) -> (2, 7) has a util value of 11
+  Move: (7, 0) -> (7, 2) has a util value of 11
+  Move: (7, 4) -> (7, 2) has a util value of 11
+  Current player has 16 moves to examine
+  Current move decision has explored 3022450 nodes.
+  Current move decision has taken 9.173511589 seconds.
+Executing move (6, 7) -> (4, 7)
+Turn 32, black to play:
+-------------------
+| . . . . . w . . |
+| . b w b . b . . |
+| . . . w . . . . |
+| w b . b . . w b |
+| . w . . . . . w |
+| w b w b . . w . |
+| b w . w . w b . |
+| w b . b w b w b |
+-------------------
+  Move: (3, 7) -> (3, 5) has a util value of 5
+  Move: (3, 7) -> (5, 7) has a util value of 5
+  Move: (6, 0) -> (4, 0) has a util value of 5
+  Move: (6, 0) -> (2, 0) has a util value of 5
+  Move: (6, 0) -> (6, 2) has a util value of 5
+  Move: (6, 0) -> (6, 4) has a util value of 5
+  Move: (6, 6) -> (4, 6) has a util value of 5
+  Move: (6, 6) -> (2, 6) has a util value of 5
+  Move: (6, 6) -> (6, 4) has a util value of 5
+  Move: (6, 6) -> (6, 2) has a util value of 5
+  Move: (7, 5) -> (5, 5) has a util value of 5
+  Current player has 11 moves to examine
+  Current move decision has explored 15347 nodes.
+  Current move decision has taken 0.080072403 seconds.
+Executing move (3, 7) -> (3, 5)
+Turn 33, white to play:
+-------------------
+| . . . . . w . . |
+| . b w b . b . . |
+| . . . w . . . . |
+| w b . b . b . . |
+| . w . . . . . w |
+| w b w b . . w . |
+| b w . w . w b . |
+| w b . b w b w b |
+-------------------
+  Move: (0, 5) -> (2, 5) has a util value of 10
+  Move: (0, 5) -> (4, 5) has a util value of 8
+  Move: (1, 2) -> (1, 0) has a util value of 10
+  Move: (1, 2) -> (1, 4) has a util value of 8
+  Move: (1, 2) -> (1, 6) has a util value of 5
+  Move: (2, 3) -> (0, 3) has a util value of 10
+  Move: (2, 3) -> (4, 3) has a util value of 9
+  Move: (3, 0) -> (3, 2) has a util value of 9
+  Move: (3, 0) -> (3, 4) has a util value of 8
+  Move: (3, 0) -> (3, 6) has a util value of 5
+  Move: (4, 1) -> (2, 1) has a util value of 10
+  Move: (4, 1) -> (0, 1) has a util value of 7
+  Move: (5, 2) -> (5, 4) has a util value of 9
+  Move: (6, 3) -> (4, 3) has a util value of 9
+  Move: (6, 5) -> (6, 7) has a util value of 11
+  Move: (7, 0) -> (7, 2) has a util value of 10
+  Move: (7, 4) -> (7, 2) has a util value of 10
+  Current player has 17 moves to examine
+  Current move decision has explored 1479266 nodes.
+  Current move decision has taken 4.081930671 seconds.
+Executing move (6, 5) -> (6, 7)
+Turn 34, black to play:
+-------------------
+| . . . . . w . . |
+| . b w b . b . . |
+| . . . w . . . . |
+| w b . b . b . . |
+| . w . . . . . w |
+| w b w b . . w . |
+| b w . w . . . w |
+| w b . b w b w b |
+-------------------
+  Move: (6, 0) -> (4, 0) has a util value of 2
+  Move: (6, 0) -> (2, 0) has a util value of 2
+  Move: (6, 0) -> (6, 2) has a util value of 2
+  Move: (6, 0) -> (6, 4) has a util value of 2
+  Move: (7, 7) -> (5, 7) has a util value of 4
+  Move: (7, 7) -> (3, 7) has a util value of 4
+  Current player has 6 moves to examine
+  Current move decision has explored 14984 nodes.
+  Current move decision has taken 0.047634619 seconds.
+Executing move (7, 7) -> (5, 7)
+Turn 35, white to play:
+-------------------
+| . . . . . w . . |
+| . b w b . b . . |
+| . . . w . . . . |
+| w b . b . b . . |
+| . w . . . . . w |
+| w b w b . . w b |
+| b w . w . . . . |
+| w b . b w b w . |
+-------------------
+  Move: (0, 5) -> (2, 5) has a util value of 9
+  Move: (0, 5) -> (4, 5) has a util value of 8
+  Move: (1, 2) -> (1, 0) has a util value of 8
+  Move: (1, 2) -> (1, 4) has a util value of 8
+  Move: (1, 2) -> (1, 6) has a util value of 5
+  Move: (2, 3) -> (0, 3) has a util value of 8
+  Move: (2, 3) -> (4, 3) has a util value of 8
+  Move: (3, 0) -> (3, 2) has a util value of 9
+  Move: (3, 0) -> (3, 4) has a util value of 8
+  Move: (3, 0) -> (3, 6) has a util value of 5
+  Move: (4, 1) -> (2, 1) has a util value of 9
+  Move: (4, 1) -> (0, 1) has a util value of 6
+  Move: (4, 7) -> (6, 7) has a util value of 11
+  Move: (5, 2) -> (5, 4) has a util value of 9
+  Move: (6, 3) -> (4, 3) has a util value of 8
+  Move: (7, 0) -> (7, 2) has a util value of 10
+  Move: (7, 4) -> (7, 2) has a util value of 9
+  Current player has 17 moves to examine
+  Current move decision has explored 1133040 nodes.
+  Current move decision has taken 2.968753848 seconds.
+Executing move (4, 7) -> (6, 7)
+Turn 36, black to play:
+-------------------
+| . . . . . w . . |
+| . b w b . b . . |
+| . . . w . . . . |
+| w b . b . b . . |
+| . w . . . . . . |
+| w b w b . . w . |
+| b w . w . . . w |
+| w b . b w b w . |
+-------------------
+  Move: (6, 0) -> (4, 0) has a util value of 2
+  Move: (6, 0) -> (2, 0) has a util value of 2
+  Move: (6, 0) -> (6, 2) has a util value of 2
+  Move: (6, 0) -> (6, 4) has a util value of 2
+  Move: (7, 5) -> (7, 7) has a util value of 4
+  Current player has 5 moves to examine
+  Current move decision has explored 11480 nodes.
+  Current move decision has taken 0.03584569 seconds.
+Executing move (7, 5) -> (7, 7)
+Turn 37, white to play:
+-------------------
+| . . . . . w . . |
+| . b w b . b . . |
+| . . . w . . . . |
+| w b . b . b . . |
+| . w . . . . . . |
+| w b w b . . w . |
+| b w . w . . . w |
+| w b . b w . . b |
+-------------------
+  Move: (0, 5) -> (2, 5) has a util value of 9
+  Move: (0, 5) -> (4, 5) has a util value of 8
+  Move: (1, 2) -> (1, 0) has a util value of 7
+  Move: (1, 2) -> (1, 4) has a util value of 6
+  Move: (1, 2) -> (1, 6) has a util value of 4
+  Move: (2, 3) -> (0, 3) has a util value of 8
+  Move: (2, 3) -> (4, 3) has a util value of 7
+  Move: (3, 0) -> (3, 2) has a util value of 7
+  Move: (3, 0) -> (3, 4) has a util value of 6
+  Move: (3, 0) -> (3, 6) has a util value of 3
+  Move: (4, 1) -> (2, 1) has a util value of 8
+  Move: (4, 1) -> (0, 1) has a util value of 5
+  Move: (5, 2) -> (5, 4) has a util value of 7
+  Move: (6, 3) -> (4, 3) has a util value of 7
+  Move: (7, 0) -> (7, 2) has a util value of 9
+  Move: (7, 4) -> (7, 2) has a util value of 8
+  Current player has 16 moves to examine
+  Current move decision has explored 611405 nodes.
+  Current move decision has taken 1.433939469 seconds.
+Executing move (0, 5) -> (2, 5)
+Turn 38, black to play:
+-------------------
+| . . . . . . . . |
+| . b w b . . . . |
+| . . . w . w . . |
+| w b . b . b . . |
+| . w . . . . . . |
+| w b w b . . w . |
+| b w . w . . . w |
+| w b . b w . . b |
+-------------------
+  Move: (3, 5) -> (1, 5) has a util value of 4
+  Move: (6, 0) -> (4, 0) has a util value of 4
+  Move: (6, 0) -> (2, 0) has a util value of 4
+  Move: (6, 0) -> (6, 2) has a util value of 4
+  Move: (6, 0) -> (6, 4) has a util value of 4
+  Move: (7, 3) -> (7, 5) has a util value of 4
+  Move: (7, 7) -> (5, 7) has a util value of 4
+  Current player has 7 moves to examine
+  Current move decision has explored 6179 nodes.
+  Current move decision has taken 0.029234583 seconds.
+Executing move (3, 5) -> (1, 5)
+Turn 39, white to play:
+-------------------
+| . . . . . . . . |
+| . b w b . b . . |
+| . . . w . . . . |
+| w b . b . . . . |
+| . w . . . . . . |
+| w b w b . . w . |
+| b w . w . . . w |
+| w b . b w . . b |
+-------------------
+  Move: (1, 2) -> (1, 0) has a util value of 5
+  Move: (1, 2) -> (1, 4) has a util value of 6
+  Move: (1, 2) -> (1, 6) has a util value of 4
+  Move: (2, 3) -> (0, 3) has a util value of 6
+  Move: (2, 3) -> (4, 3) has a util value of 5
+  Move: (3, 0) -> (3, 2) has a util value of 5
+  Move: (3, 0) -> (3, 4) has a util value of 3
+  Move: (4, 1) -> (2, 1) has a util value of 6
+  Move: (4, 1) -> (0, 1) has a util value of 3
+  Move: (5, 2) -> (5, 4) has a util value of 5
+  Move: (6, 3) -> (4, 3) has a util value of 5
+  Move: (7, 0) -> (7, 2) has a util value of 6
+  Move: (7, 4) -> (7, 2) has a util value of 6
+  Current player has 13 moves to examine
+  Current move decision has explored 321048 nodes.
+  Current move decision has taken 0.685713036 seconds.
+Executing move (1, 2) -> (1, 4)
+Turn 40, black to play:
+-------------------
+| . . . . . . . . |
+| . b . . w b . . |
+| . . . w . . . . |
+| w b . b . . . . |
+| . w . . . . . . |
+| w b w b . . w . |
+| b w . w . . . w |
+| w b . b w . . b |
+-------------------
+  Move: (1, 5) -> (1, 3) has a util value of 4
+  Move: (3, 3) -> (1, 3) has a util value of 4
+  Move: (6, 0) -> (4, 0) has a util value of 4
+  Move: (6, 0) -> (2, 0) has a util value of 4
+  Move: (6, 0) -> (6, 2) has a util value of 4
+  Move: (6, 0) -> (6, 4) has a util value of 4
+  Move: (7, 3) -> (7, 5) has a util value of 5
+  Move: (7, 7) -> (5, 7) has a util value of 5
+  Current player has 8 moves to examine
+  Current move decision has explored 5414 nodes.
+  Current move decision has taken 0.016401527 seconds.
+Executing move (7, 3) -> (7, 5)
+Turn 41, white to play:
+-------------------
+| . . . . . . . . |
+| . b . . w b . . |
+| . . . w . . . . |
+| w b . b . . . . |
+| . w . . . . . . |
+| w b w b . . w . |
+| b w . w . . . w |
+| w b . . . b . b |
+-------------------
+  Move: (1, 4) -> (1, 6) has a util value of 4
+  Move: (2, 3) -> (4, 3) has a util value of 3
+  Move: (3, 0) -> (3, 2) has a util value of 3
+  Move: (3, 0) -> (3, 4) has a util value of 1
+  Move: (4, 1) -> (2, 1) has a util value of 4
+  Move: (4, 1) -> (0, 1) has a util value of 3
+  Move: (5, 2) -> (5, 4) has a util value of 3
+  Move: (6, 3) -> (4, 3) has a util value of 3
+  Move: (7, 0) -> (7, 2) has a util value of 3
+  Current player has 9 moves to examine
+  Current move decision has explored 115095 nodes.
+  Current move decision has taken 0.230356458 seconds.
+Executing move (1, 4) -> (1, 6)
+Turn 42, black to play:
+-------------------
+| . . . . . . . . |
+| . b . . . . w . |
+| . . . w . . . . |
+| w b . b . . . . |
+| . w . . . . . . |
+| w b w b . . w . |
+| b w . w . . . w |
+| w b . . . b . b |
+-------------------
+  Move: (3, 3) -> (1, 3) has a util value of 3
+  Move: (5, 3) -> (7, 3) has a util value of 3
+  Move: (6, 0) -> (4, 0) has a util value of 3
+  Move: (6, 0) -> (2, 0) has a util value of 3
+  Move: (6, 0) -> (6, 2) has a util value of 3
+  Move: (6, 0) -> (6, 4) has a util value of 3
+  Move: (7, 7) -> (5, 7) has a util value of 3
+  Current player has 7 moves to examine
+  Current move decision has explored 2334 nodes.
+  Current move decision has taken 0.006254706 seconds.
+Executing move (3, 3) -> (1, 3)
+Turn 43, white to play:
+-------------------
+| . . . . . . . . |
+| . b . b . . w . |
+| . . . . . . . . |
+| w b . . . . . . |
+| . w . . . . . . |
+| w b w b . . w . |
+| b w . w . . . w |
+| w b . . . b . b |
+-------------------
+  Move: (3, 0) -> (3, 2) has a util value of 1
+  Move: (4, 1) -> (2, 1) has a util value of 2
+  Move: (4, 1) -> (0, 1) has a util value of 1
+  Move: (5, 2) -> (5, 4) has a util value of 2
+  Move: (6, 3) -> (4, 3) has a util value of 1
+  Move: (7, 0) -> (7, 2) has a util value of 1
+  Current player has 6 moves to examine
+  Current move decision has explored 15060 nodes.
+  Current move decision has taken 0.02809198 seconds.
+Executing move (4, 1) -> (2, 1)
+Turn 44, black to play:
+-------------------
+| . . . . . . . . |
+| . b . b . . w . |
+| . w . . . . . . |
+| w . . . . . . . |
+| . . . . . . . . |
+| w b w b . . w . |
+| b w . w . . . w |
+| w b . . . b . b |
+-------------------
+  Move: (1, 1) -> (3, 1) has a util value of 2
+  Move: (5, 3) -> (7, 3) has a util value of 2
+  Move: (6, 0) -> (4, 0) has a util value of 2
+  Move: (6, 0) -> (2, 0) has a util value of 2
+  Move: (6, 0) -> (6, 2) has a util value of 2
+  Move: (6, 0) -> (6, 4) has a util value of 2
+  Move: (7, 7) -> (5, 7) has a util value of 2
+  Current player has 7 moves to examine
+  Current move decision has explored 2532 nodes.
+  Current move decision has taken 0.005889297 seconds.
+Executing move (1, 1) -> (3, 1)
+Turn 45, white to play:
+-------------------
+| . . . . . . . . |
+| . . . b . . w . |
+| . . . . . . . . |
+| w b . . . . . . |
+| . . . . . . . . |
+| w b w b . . w . |
+| b w . w . . . w |
+| w b . . . b . b |
+-------------------
+  Move: (3, 0) -> (3, 2) has a util value of 1
+  Move: (5, 2) -> (5, 4) has a util value of -512
+  Move: (6, 1) -> (4, 1) has a util value of 1
+  Move: (6, 1) -> (2, 1) has a util value of -512
+  Move: (6, 3) -> (4, 3) has a util value of 1
+  Move: (7, 0) -> (7, 2) has a util value of -512
+  Current player has 6 moves to examine
+  Current move decision has explored 6004 nodes.
+  Current move decision has taken 0.010119094 seconds.
+Executing move (3, 0) -> (3, 2)
+Turn 46, black to play:
+-------------------
+| . . . . . . . . |
+| . . . b . . w . |
+| . . . . . . . . |
+| . . w . . . . . |
+| . . . . . . . . |
+| w b w b . . w . |
+| b w . w . . . w |
+| w b . . . b . b |
+-------------------
+  Move: (5, 3) -> (7, 3) has a util value of 3
+  Move: (6, 0) -> (4, 0) has a util value of 2
+  Move: (6, 0) -> (6, 2) has a util value of 3
+  Move: (6, 0) -> (6, 4) has a util value of 2
+  Move: (7, 7) -> (5, 7) has a util value of 2
+  Current player has 5 moves to examine
+  Current move decision has explored 310 nodes.
+  Current move decision has taken 8.82445E-4 seconds.
+Executing move (5, 3) -> (7, 3)
+Turn 47, white to play:
+-------------------
+| . . . . . . . . |
+| . . . b . . w . |
+| . . . . . . . . |
+| . . w . . . . . |
+| . . . . . . . . |
+| w b w . . . w . |
+| b w . . . . . w |
+| w b . b . b . b |
+-------------------
+  Move: (6, 1) -> (4, 1) has a util value of -512
+  Move: (7, 0) -> (7, 2) has a util value of -512
+  Move: (7, 0) -> (7, 4) has a util value of -512
+  Move: (7, 0) -> (7, 6) has a util value of -512
+  Current player has 4 moves to examine
+  Current move decision has explored 713 nodes.
+  Current move decision has taken 0.001281588 seconds.
+Executing move (6, 1) -> (4, 1)
+Turn 48, black to play:
+-------------------
+| . . . . . . . . |
+| . . . b . . w . |
+| . . . . . . . . |
+| . . w . . . . . |
+| . w . . . . . . |
+| w . w . . . w . |
+| b . . . . . . w |
+| w b . b . b . b |
+-------------------
+  Move: (6, 0) -> (4, 0) has a util value of 512
+  Move: (7, 7) -> (5, 7) has a util value of 512
+  Current player has 2 moves to examine
+  Current move decision has explored 24 nodes.
+  Current move decision has taken 1.66292E-4 seconds.
+Executing move (6, 0) -> (4, 0)
+Turn 49, white to play:
+-------------------
+| . . . . . . . . |
+| . . . b . . w . |
+| . . . . . . . . |
+| . . w . . . . . |
+| b w . . . . . . |
+| . . w . . . w . |
+| . . . . . . . w |
+| w b . b . b . b |
+-------------------
+  Move: (7, 0) -> (7, 2) has a util value of -512
+  Move: (7, 0) -> (7, 4) has a util value of -512
+  Move: (7, 0) -> (7, 6) has a util value of -512
+  Current player has 3 moves to examine
+  Current move decision has explored 53 nodes.
+  Current move decision has taken 2.46469E-4 seconds.
+Executing move (7, 0) -> (7, 2)
+Turn 50, black to play:
+-------------------
+| . . . . . . . . |
+| . . . b . . w . |
+| . . . . . . . . |
+| . . w . . . . . |
+| b w . . . . . . |
+| . . w . . . w . |
+| . . . . . . . w |
+| . . w b . b . b |
+-------------------
+  Move: (4, 0) -> (4, 2) has a util value of 512
+  Move: (7, 3) -> (7, 1) has a util value of 512
+  Move: (7, 7) -> (5, 7) has a util value of 512
+  Current player has 3 moves to examine
+  Current move decision has explored 15 nodes.
+  Current move decision has taken 1.98768E-4 seconds.
+Executing move (4, 0) -> (4, 2)
+Turn 51, white to play:
+-------------------
+| . . . . . . . . |
+| . . . b . . w . |
+| . . . . . . . . |
+| . . w . . . . . |
+| . . b . . . . . |
+| . . w . . . w . |
+| . . . . . . . w |
+| . . w b . b . b |
+-------------------
+  Move: (7, 2) -> (7, 4) has a util value of -512
+  Move: (7, 2) -> (7, 6) has a util value of -512
+  Current player has 2 moves to examine
+  Current move decision has explored 20 nodes.
+  Current move decision has taken 1.35142E-4 seconds.
+Executing move (7, 2) -> (7, 4)
+Turn 52, black to play:
+-------------------
+| . . . . . . . . |
+| . . . b . . w . |
+| . . . . . . . . |
+| . . w . . . . . |
+| . . b . . . . . |
+| . . w . . . w . |
+| . . . . . . . w |
+| . . . . w b . b |
+-------------------
+  Move: (4, 2) -> (2, 2) has a util value of 512
+  Move: (4, 2) -> (6, 2) has a util value of 512
+  Move: (7, 5) -> (7, 3) has a util value of 512
+  Move: (7, 7) -> (5, 7) has a util value of 512
+  Current player has 4 moves to examine
+  Current move decision has explored 14 nodes.
+  Current move decision has taken 2.12318E-4 seconds.
+Executing move (4, 2) -> (2, 2)
+Turn 53, white to play:
+-------------------
+| . . . . . . . . |
+| . . . b . . w . |
+| . . b . . . . . |
+| . . . . . . . . |
+| . . . . . . . . |
+| . . w . . . w . |
+| . . . . . . . w |
+| . . . . w b . b |
+-------------------
+  Move: (7, 4) -> (7, 6) has a util value of -512
+  Current player has 1 moves to examine
+  Current move decision has explored 3 nodes.
+  Current move decision has taken 5.3429E-5 seconds.
+Executing move (7, 4) -> (7, 6)
+Turn 54, black to play:
+-------------------
+| . . . . . . . . |
+| . . . b . . w . |
+| . . b . . . . . |
+| . . . . . . . . |
+| . . . . . . . . |
+| . . w . . . w . |
+| . . . . . . . w |
+| . . . . . . w b |
+-------------------
+  Move: (7, 7) -> (5, 7) has a util value of 512
+  Move: (7, 7) -> (7, 5) has a util value of 512
+  Current player has 2 moves to examine
+  Current move decision has explored 2 nodes.
+  Current move decision has taken 9.9873E-5 seconds.
+Executing move (7, 7) -> (5, 7)
+Game over!  Final board state:
+-------------------
+| . . . . . . . . |
+| . . . b . . w . |
+| . . b . . . . . |
+| . . . . . . . . |
+| . . . . . . . . |
+| . . w . . . w b |
+| . . . . . . . . |
+| . . . . . . w . |
+-------------------
+Game won by Black after 55 turns
+Black Player explored a total of 1116179 nodes
+White Player explored a total of 92024426 nodes
+make: Leaving directory `/home/ncarey/gitrepos/AI-HW/HW2/carey.nick/src'

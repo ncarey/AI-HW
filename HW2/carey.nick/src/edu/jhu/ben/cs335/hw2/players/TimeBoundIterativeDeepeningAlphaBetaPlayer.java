@@ -52,7 +52,7 @@ public class TimeBoundIterativeDeepeningAlphaBetaPlayer extends Player {
   /**
    * Variable used for controlling debugging statements - 1 on, 0 off
    */
-  private static final int DEBUG = 1;
+  private static final int DEBUG = 0;
 
   /** 
    * the current max depth - increases each iteration 
@@ -80,10 +80,16 @@ public class TimeBoundIterativeDeepeningAlphaBetaPlayer extends Player {
    */
   private int currentNodesExplored;
 
+ /**
+   * boolean governing whether winning or losing state has been found
+   */
+  private boolean endStateFound;
+
   /**
    * Boolean set at construction specifying whether to use move-ordering heuristic
    */
   private boolean orderMoves;
+  private int totalMaxDepth;
 
   /**
    * Construct a AlphaBetaPlayer object by specifiying the maximum search depth
@@ -94,12 +100,13 @@ public class TimeBoundIterativeDeepeningAlphaBetaPlayer extends Player {
    * @param playerColor integer representing player - 0 is black, anything else is white
    */
   public TimeBoundIterativeDeepeningAlphaBetaPlayer(double timeBound, int playerColor, boolean toOrderMoves) {
-
+    
     super();
     maxTime = timeBound;
     totalNodesExplored = 0;
     this.orderMoves = toOrderMoves;
-
+    endStateFound = false;
+    totalMaxDepth = 0;
     if(playerColor == 0) {
       player = Chip.BLACK;
     }else{
@@ -122,6 +129,7 @@ public class TimeBoundIterativeDeepeningAlphaBetaPlayer extends Player {
    * @param game the current game state; state is gaurenteed by the driver to not be an end-game state
    */
   public Move getMove(Board game) {
+    this.endStateFound = false;
     long startTime = System.nanoTime();
     currentNodesExplored = 0;
     Move ret = null;
@@ -138,12 +146,21 @@ public class TimeBoundIterativeDeepeningAlphaBetaPlayer extends Player {
       ret = getMoveHelper(game);
       endTime = System.nanoTime();
       duration = ((double)(endTime - startTime)) / 1000000000.0;
+      if(this.endStateFound){
+        break;
+      }
+
     }
 
-    if(DEBUG == 1) {
-      System.out.println("  Current move decision has explored " + currentNodesExplored + " nodes.");
-      System.out.println("  Current move decision has taken " + duration + " seconds.");
+    if(maxDepth > totalMaxDepth){
+      totalMaxDepth = maxDepth;
     }
+
+    System.out.println("  Current player has " + game.getLegalMoves().size() + " moves to examine");
+    System.out.println("  Current move decision search tree depth: " + maxDepth);
+    System.out.println("  Current maximum move decision search tree depth: " + totalMaxDepth);
+    System.out.println("  Current move decision has explored " + currentNodesExplored + " nodes.");
+    System.out.println("  Current move decision has taken " + duration + " seconds.");
     System.out.println("Executing move " + ret.toString());
     return ret;
   }
@@ -167,9 +184,6 @@ public class TimeBoundIterativeDeepeningAlphaBetaPlayer extends Player {
     int curUtil;
     ArrayList<Move> legalMoves = game.getLegalMoves();
 
-    if(DEBUG == 1) {
-      System.out.println("  Current player has " + legalMoves.size() + " moves to examine");
-    }
 
     /* apply each move to seperate copy of board */
     ArrayList<Board> moveBoard = new ArrayList<Board>();
@@ -228,6 +242,17 @@ public class TimeBoundIterativeDeepeningAlphaBetaPlayer extends Player {
       }
       mAlpha = Math.max(maxUtil, mAlpha);
 
+      /*if maxUtil is winning value, stop search and return */
+      if(maxUtil == game.getSize() * game.getSize() * game.getSize()){
+        this.endStateFound = true;
+        return ret;
+      }
+
+    }
+   
+    /*if maxUtil is losing value, stop iterative deepening search. nothing we can do.*/
+    if(maxUtil == -1 * game.getSize() * game.getSize() * game.getSize()){
+        this.endStateFound = true;
     }
 
     return ret;
@@ -385,7 +410,7 @@ public class TimeBoundIterativeDeepeningAlphaBetaPlayer extends Player {
    */
   private int boardUtilityEvaluation(Board game) {
 
-    int maxUtilValue = game.getSize() * game.getSize();
+    int maxUtilValue = game.getSize() * game.getSize() * game.getSize();
     int minUtilValue = -1 * maxUtilValue;
     // Check game-over conditions 
     if(game.gameWon() != Chip.NONE) {

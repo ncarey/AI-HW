@@ -52,7 +52,7 @@ public class AlphaBetaPlayer extends Player {
   /**
    * Variable used for controlling debugging statements - 1 on, 0 off
    */
-  private static final int DEBUG = 1;
+  private static final int DEBUG = 0;
 
   /** 
    * maximum minimax search tree depth specified at runtime
@@ -131,9 +131,6 @@ public class AlphaBetaPlayer extends Player {
     int curUtil;
     ArrayList<Move> legalMoves = game.getLegalMoves();
 
-    if(DEBUG == 1) {
-      System.out.println("  Current player has " + legalMoves.size() + " moves to examine");
-    }
 
     /* apply each move to seperate copy of board */
     ArrayList<Board> moveBoard = new ArrayList<Board>();
@@ -198,10 +195,9 @@ public class AlphaBetaPlayer extends Player {
     double duration = ((double)(endTime - startTime)) / 1000000000.0;
 
 
-    if(DEBUG == 1) {
-      System.out.println("  Current move decision has explored " + currentNodesExplored + " nodes.");
-      System.out.println("  Current move decision has taken " + duration + " seconds.");
-    }
+    System.out.println("  Current player has " + legalMoves.size() + " moves to examine");
+    System.out.println("  Current move decision has explored " + currentNodesExplored + " nodes.");
+    System.out.println("  Current move decision has taken " + duration + " seconds.");
 
 
     System.out.println("Executing move " + ret.toString());
@@ -360,7 +356,7 @@ public class AlphaBetaPlayer extends Player {
    */
   private int boardUtilityEvaluation(Board game) {
 
-    int maxUtilValue = game.getSize() * game.getSize();
+    int maxUtilValue = game.getSize() * game.getSize() * game.getSize();
     int minUtilValue = -1 * maxUtilValue;
     // Check game-over conditions 
     if(game.gameWon() != Chip.NONE) {

@@ -63,13 +63,13 @@ public class TimeBoundIterativeDeepeningMinimaxPlayer extends Player {
   /**
    * Variable used for controlling debugging statements - 1 on, 0 off
    */ 
-  private static final int DEBUG = 1;
+  private static final int DEBUG = 0;
 
   /** 
    * maximum minimax search tree depth
    */
   private int maxDepth;
-
+  private int totalMaxDepth;
   /** 
    * maximum time for search in seconds
    */
@@ -86,7 +86,10 @@ public class TimeBoundIterativeDeepeningMinimaxPlayer extends Player {
    * counter variable to keep track of expanded game state nodes
    */
   private int totalNodesExplored;
-
+  /**
+   * boolean governing whether winning or losing state has been found
+   */
+  private boolean endStateFound;
   /**
    * counter variable to keep track of expanded game state nodes per turn
    * this variable is reset at each call to getMove()
@@ -105,7 +108,8 @@ public class TimeBoundIterativeDeepeningMinimaxPlayer extends Player {
     super();
     maxTime = timeBound;
     totalNodesExplored = 0;
-
+    endStateFound = false;    
+    totalMaxDepth = 0;
     if(playerColor == 0) {
       player = Chip.BLACK;
     }else{
@@ -128,6 +132,8 @@ public class TimeBoundIterativeDeepeningMinimaxPlayer extends Player {
    * @param game the current game state; state is gaurenteed by the driver to not be an end-game state
    */
   public Move getMove(Board game) {
+    
+    this.endStateFound = false;
     long startTime = System.nanoTime();
     currentNodesExplored = 0;
     Move ret = null;
@@ -144,12 +150,18 @@ public class TimeBoundIterativeDeepeningMinimaxPlayer extends Player {
       ret = getMoveHelper(game);
       endTime = System.nanoTime();
       duration = ((double)(endTime - startTime)) / 1000000000.0;
+      if(this.endStateFound){
+        break;
+      }
     }
-
-    if(DEBUG == 1) {
-      System.out.println("  Current move decision has explored " + currentNodesExplored + " nodes.");
-      System.out.println("  Current move decision has taken " + duration + " seconds.");
+    if(maxDepth > totalMaxDepth){
+      totalMaxDepth = maxDepth;
     }
+    System.out.println("  Current player has " + game.getLegalMoves().size() + " moves to examine");
+    System.out.println("  Current move decision search tree depth: " + maxDepth);
+    System.out.println("  Current maximum move decision search tree depth: " + totalMaxDepth);
+    System.out.println("  Current move decision has explored " + currentNodesExplored + " nodes.");
+    System.out.println("  Current move decision has taken " + duration + " seconds.");
     System.out.println("Executing move " + ret.toString());   
     return ret;
   }
@@ -178,9 +190,6 @@ public class TimeBoundIterativeDeepeningMinimaxPlayer extends Player {
     int curUtil;    
     ArrayList<Move> legalMoves = game.getLegalMoves();
     
-    if(DEBUG == 1) {
-      System.out.println("  Current player has " + legalMoves.size() + " moves to examine");
-    }
 
     //TODO consider parallelizing this loop...
     for(int i = 0; i < legalMoves.size(); i++) {
@@ -207,8 +216,19 @@ public class TimeBoundIterativeDeepeningMinimaxPlayer extends Player {
         ret = legalMoves.get(i);
         maxUtil = curUtil;
       }
+      /*if maxUtil is winning value, stop search and return */
+      if(maxUtil == game.getSize() * game.getSize() * game.getSize()){
+        this.endStateFound = true;
+        return ret;
+      }
+
     } 
 
+    /*if maxUtil is losing value, stop iterative deepening search. nothing we can do.*/
+    if(maxUtil == -1 * game.getSize() * game.getSize() * game.getSize()){
+        this.endStateFound = true;
+        return ret;
+    }
 
     return ret;
 
@@ -298,7 +318,7 @@ public class TimeBoundIterativeDeepeningMinimaxPlayer extends Player {
    */
   private int boardUtilityEvaluation(Board game) {
   
-    int maxUtilValue = game.getSize() * game.getSize();
+    int maxUtilValue = game.getSize() * game.getSize() * game.getSize();
     int minUtilValue = -1 * maxUtilValue;
     // Check game-over conditions 
     if(game.gameWon() != Chip.NONE) {
